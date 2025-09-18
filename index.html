@@ -7,5 +7,14 @@
     <h2> 12343234243 fdfsfsdEmbedding Images in HTML. </h2>
 
     <img src="leopard.jpg" />
+    <div id="choropleth_map"></div>
+
+<script type="text/javascript">
+
+  var spec2 = "js\Metro_vs_non_metro_symbol_map.json";
+  vegaEmbed('#Metro_vs_non_metro_symbol_map', spec2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+</script>
 </body>
 </html>
