@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "title": "Victorian Schools by Sector",
-  "width": 800,
+  "width": 400,
   "height": 520,
   "projection": {"type": "mercator"},
   "layer": [
