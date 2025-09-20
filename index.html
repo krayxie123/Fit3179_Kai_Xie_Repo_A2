@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>My First HTML Document.</title>
+    <title>Victorian Schools VCE Analysis</title>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
@@ -15,8 +15,16 @@
         <div id="Metro_vs_non_metro_symbol_map"></div>
     </div>
     
+
+
     <h3>Median VCE Study Scores by School</h3>
-    <div id="vce_scores_map"></div>
+    <div style="display: flex; gap: 20px; align-items: flex-start;">
+        <div id="vce_scores_map" style="flex: 1;"></div>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div id="vce_sector_bar_chart"></div>
+            <div id="vce_region_bar_chart"></div>
+        </div>
+    </div>
         <script type="text/javascript">
 
         var spec1 = "js/Metro_vs_non_metro_symbol_map.json";
@@ -24,8 +32,18 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
 
-        var spec2 = "js/vce_scores_map.json";
-            vegaEmbed('#vce_scores_map', spec2).then(function(result) {
+        var spec6 = "js/vce_scores_map.json";
+            vegaEmbed('#vce_scores_map', spec6).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec7 = "js/vce_sector_bar_chart.json";
+            vegaEmbed('#vce_sector_bar_chart', spec7).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec8 = "js/vce_region_bar_chart.json";
+            vegaEmbed('#vce_region_bar_chart', spec8).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
         </script>

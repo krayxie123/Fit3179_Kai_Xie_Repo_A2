@@ -1,26 +1,30 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": "Victorian Schools by Sector",
-  "width": 400,
-  "height": 520,
+  "title": "Simple Schools Map Test",
+  "width": 600,
+  "height": 700,
   "projection": {"type": "mercator"},
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/output%20(1).json",
+        "url": "output (1).json",
         "format": {"type": "topojson", "feature": "MB_2016_VIC"}
       },
-      "mark": {"type": "geoshape", "fill": "#f5f5f5", "stroke": "#ccc"}
+      "mark": {"type": "geoshape", "fill": "#f5f5f5", "stroke": "#ccc", "strokeWidth": 0.5}
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/data/dv402-SchoolLocations2025.csv"
+        "url": "data/dv402-SchoolLocations2025.csv"
       },
-      "mark": {"type": "circle", "size": 24, "opacity": 0.85},
+      "mark": {
+        "type": "circle",
+        "size": 50,
+        "opacity": 0.7,
+        "color": "red"
+      },
       "encoding": {
         "longitude": {"field": "X", "type": "quantitative"},
         "latitude": {"field": "Y", "type": "quantitative"},
-        "color": {"field": "LGA_TYPE", "type": "nominal"},
         "tooltip": [
           {"field": "School_Name", "type": "nominal", "title": "School"},
           {"field": "Address_Town", "type": "nominal", "title": "Town"}

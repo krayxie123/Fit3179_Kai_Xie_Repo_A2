@@ -1,0 +1,67 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": "Individual Schools - Colored by Region",
+  "width": 600,
+  "height": 600,
+  "data": {
+    "url": "data/dv402-SchoolLocations2025.csv"
+  },
+  "transform": [
+    {
+      "lookup": "School_Name",
+      "from": {
+        "data": {"url": "data/VCE 2024 Results.csv"},
+        "key": "School",
+        "fields": ["Median VCE study score"]
+      }
+    },
+    {
+      "filter": "datum['Median VCE study score'] != null && datum['Median VCE study score'] != 'I/D' && datum['Median VCE study score'] != '-' && datum['Median VCE study score'] != ''"
+    },
+    {
+      "calculate": "parseFloat(datum['Median VCE study score'])",
+      "as": "median_score"
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "cornerRadius": 2,
+    "stroke": "white",
+    "strokeWidth": 0.5
+  },
+  "encoding": {
+    "x": {
+      "field": "School_Name",
+      "type": "nominal",
+      "title": "Schools",
+      "axis": {"labelAngle": -90, "labelLimit": 50},
+      "sort": {
+        "field": "Region",
+        "order": "ascending"
+      }
+    },
+    "y": {
+      "field": "median_score",
+      "type": "quantitative",
+      "title": "Median VCE Score"
+    },
+    "color": {
+      "field": "Region",
+      "type": "nominal",
+      "title": "Region",
+      "scale": {
+        "domain": ["NORTH-WESTERN VICTORIA", "SOUTH-WESTERN VICTORIA", "SOUTH-EASTERN VICTORIA", "NORTH-EASTERN VICTORIA"],
+        "range": ["#d62728", "#ff7f0e", "#2ca02c", "#9467bd"]
+      },
+      "legend": {
+        "orient": "bottom"
+      }
+    },
+    "tooltip": [
+      {"field": "School_Name", "type": "nominal", "title": "School"},
+      {"field": "Region", "type": "nominal", "title": "Region"},
+      {"field": "median_score", "type": "quantitative", "title": "Median VCE Score", "format": ".1f"},
+      {"field": "Address_Town", "type": "nominal", "title": "Town"}
+    ]
+  }
+}

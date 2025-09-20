@@ -7,27 +7,20 @@
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/output%20(1).json",
+        "url": "output (1).json",
         "format": {"type": "topojson", "feature": "MB_2016_VIC"}
       },
       "mark": {"type": "geoshape", "fill": "#f5f5f5", "stroke": "#ccc", "strokeWidth": 0.5}
     },
     {
-      "data": [
-        {
-          "name": "schools",
-          "url": "data/dv402-SchoolLocations2025.csv"
-        },
-        {
-          "name": "vce_results",
-          "url": "data/VCE 2024 Results.csv"
-        }
-      ],
+      "data": {
+        "url": "data/dv402-SchoolLocations2025.csv"
+      },
       "transform": [
         {
-          "lookup": "School",
+          "lookup": "School_Name",
           "from": {
-            "data": {"name": "vce_results"},
+            "data": {"url": "data/VCE 2024 Results.csv"},
             "key": "School",
             "fields": ["Median VCE study score"]
           }
@@ -75,7 +68,7 @@
         "tooltip": [
           {"field": "School_Name", "type": "nominal", "title": "School"},
           {"field": "Address_Town", "type": "nominal", "title": "Town"},
-          {"field": "median_score", "type": "quantitative", "title": "Median VCE Score", "format": ".1f"},
+          {"field": "Median VCE study score", "type": "quantitative", "title": "Median Study Score", "format": ".1f"},
           {"field": "Education_Sector", "type": "nominal", "title": "Sector"},
           {"field": "LGA_TYPE", "type": "nominal", "title": "Area Type"}
         ]
