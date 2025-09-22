@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": "Individual Schools - Colored by Region",
-  "width": 600,
-  "height": 600,
+  "title": "Average Median VCE Score by Region",
+  "width": 400,
+  "height": 200,
   "data": {
     "url": "data/dv402-SchoolLocations2025.csv"
   },
@@ -21,47 +21,38 @@
     {
       "calculate": "parseFloat(datum['Median VCE study score'])",
       "as": "median_score"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "mean",
+          "field": "median_score",
+          "as": "avg_median_score"
+        }
+      ],
+      "groupby": ["Region"]
     }
   ],
-  "mark": {
-    "type": "bar",
-    "cornerRadius": 2,
-    "stroke": "white",
-    "strokeWidth": 0.5
-  },
+  "mark": "bar",
   "encoding": {
     "x": {
-      "field": "School_Name",
-      "type": "nominal",
-      "title": "Schools",
-      "axis": {"labelAngle": -90, "labelLimit": 50},
-      "sort": {
-        "field": "Region",
-        "order": "ascending"
-      }
-    },
-    "y": {
-      "field": "median_score",
-      "type": "quantitative",
-      "title": "Median VCE Score"
-    },
-    "color": {
       "field": "Region",
       "type": "nominal",
       "title": "Region",
-      "scale": {
-        "domain": ["NORTH-WESTERN VICTORIA", "SOUTH-WESTERN VICTORIA", "SOUTH-EASTERN VICTORIA", "NORTH-EASTERN VICTORIA"],
-        "range": ["#d62728", "#ff7f0e", "#2ca02c", "#9467bd"]
-      },
-      "legend": {
-        "orient": "bottom"
-      }
+      "sort": "-y"
+    },
+    "y": {
+      "field": "avg_median_score",
+      "type": "quantitative",
+      "title": "Average Median VCE Score"
+    },
+    "color": {
+      "field": "Region",
+      "type": "nominal"
     },
     "tooltip": [
-      {"field": "School_Name", "type": "nominal", "title": "School"},
       {"field": "Region", "type": "nominal", "title": "Region"},
-      {"field": "median_score", "type": "quantitative", "title": "Median VCE Score", "format": ".1f"},
-      {"field": "Address_Town", "type": "nominal", "title": "Town"}
+      {"field": "avg_median_score", "type": "quantitative", "title": "Average Median VCE Score", "format": ".2f"}
     ]
   }
 }

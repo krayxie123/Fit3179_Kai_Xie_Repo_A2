@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": "Individual Schools - Colored by Education Sector",
-  "width": 600,
-  "height": 600,
+  "title": "Average Median VCE Score by Education Sector",
+  "width": 400,
+  "height": 400,
   "data": {
     "url": "data/dv402-SchoolLocations2025.csv"
   },
@@ -21,47 +21,41 @@
     {
       "calculate": "parseFloat(datum['Median VCE study score'])",
       "as": "median_score"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "mean",
+          "field": "median_score",
+          "as": "avg_median_score"
+        }
+      ],
+      "groupby": ["Education_Sector"]
     }
   ],
-  "mark": {
-    "type": "bar",
-    "cornerRadius": 2,
-    "stroke": "white",
-    "strokeWidth": 0.5
-  },
+  "mark": "bar",
   "encoding": {
     "x": {
-      "field": "School_Name",
+      "field": "Education_Sector",
       "type": "nominal",
-      "title": "Schools",
-      "axis": {"labelAngle": -90, "labelLimit": 50},
-      "sort": {
-        "field": "Education_Sector",
-        "order": "ascending"
-      }
+      "title": "Education Sector"
     },
     "y": {
-      "field": "median_score",
+      "field": "avg_median_score",
       "type": "quantitative",
-      "title": "Median VCE Score"
+      "title": "Average Median VCE Score"
     },
     "color": {
       "field": "Education_Sector",
       "type": "nominal",
-      "title": "Education Sector",
       "scale": {
         "domain": ["Government", "Catholic", "Independent"],
         "range": ["#1f77b4", "#ffd700", "#2ca02c"]
-      },
-      "legend": {
-        "orient": "bottom"
       }
     },
     "tooltip": [
-      {"field": "School_Name", "type": "nominal", "title": "School"},
       {"field": "Education_Sector", "type": "nominal", "title": "Sector"},
-      {"field": "median_score", "type": "quantitative", "title": "Median VCE Score", "format": ".1f"},
-      {"field": "Address_Town", "type": "nominal", "title": "Town"}
+      {"field": "avg_median_score", "type": "quantitative", "title": "Average Median VCE Score", "format": ".2f"}
     ]
   }
 }
