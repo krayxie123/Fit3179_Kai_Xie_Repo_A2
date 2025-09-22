@@ -1,0 +1,56 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Average VCE Study Scores by Suburb (2024)",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "georef-australia-local-government-area@public.geojson",
+    "format": {
+      "type": "geojson"
+    }
+  },
+  "transform": [
+    {
+      "lookup": "lga_name",
+      "from": {
+        "data": {
+          "url": "js/suburb_study_scores.csv"
+        },
+        "key": "suburb",
+        "fields": ["avg_study_score", "school_count"]
+      }
+    }
+  ],
+  "mark": {
+    "type": "geoshape",
+    "stroke": "white",
+    "strokeWidth": 0.5
+  },
+  "encoding": {
+    "color": {
+      "field": "avg_study_score",
+      "type": "quantitative",
+      "title": "Average Study Score",
+      "scale": {
+        "domain": [20, 37],
+        "range": ["#fee5d9", "#a50f15"],
+        "scheme": "reds"
+      },
+      "legend": {
+        "title": "Average Study Score",
+        "orient": "bottom"
+      }
+    },
+    "tooltip": [
+      {"field": "lga_name", "type": "nominal", "title": "Suburb"},
+      {"field": "avg_study_score", "type": "quantitative", "title": "Avg Study Score", "format": ".1f"},
+      {"field": "school_count", "type": "quantitative", "title": "Schools"}
+    ]
+  },
+  "config": {
+    "title": {
+      "fontSize": 18,
+      "fontWeight": "bold"
+    }
+  }
+}

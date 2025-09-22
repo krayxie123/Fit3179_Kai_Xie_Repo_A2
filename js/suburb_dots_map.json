@@ -1,0 +1,77 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": "Average VCE Study Scores by Suburb (2024)",
+  "width": 800,
+  "height": 600,
+  "projection": {"type": "mercator"},
+  "layer": [
+    {
+      "data": {
+        "url": "output (1).json",
+        "format": {"type": "topojson", "feature": "MB_2016_VIC"}
+      },
+      "mark": {"type": "geoshape", "fill": "#f5f5f5", "stroke": "#ccc", "strokeWidth": 0.5}
+    },
+    {
+      "data": {
+        "url": "js/suburb_study_scores.csv"
+      },
+      "transform": [
+        {
+          "lookup": "suburb",
+          "from": {
+            "data": {"url": "data/dv402-SchoolLocations2025.csv"},
+            "key": "Address_Town",
+            "fields": ["X", "Y"]
+          }
+        },
+        {
+          "filter": "datum.X != null && datum.Y != null"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 200,
+        "opacity": 0.8,
+        "stroke": "white",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "longitude": {"field": "X", "type": "quantitative"},
+        "latitude": {"field": "Y", "type": "quantitative"},
+        "color": {
+          "field": "avg_study_score",
+          "type": "quantitative",
+          "title": "Average Study Score",
+          "scale": {
+            "domain": [20, 37],
+            "range": ["#fee5d9", "#a50f15"],
+            "scheme": "reds"
+          },
+          "legend": {
+            "title": "Average Study Score",
+            "orient": "bottom"
+          }
+        },
+        "size": {
+          "field": "school_count",
+          "type": "quantitative",
+          "title": "Number of Schools",
+          "scale": {
+            "domain": [2, 10],
+            "range": [100, 400]
+          },
+          "legend": {
+            "title": "Number of Schools",
+            "orient": "bottom"
+          }
+        },
+        "tooltip": [
+          {"field": "suburb", "type": "nominal", "title": "Suburb"},
+          {"field": "avg_study_score", "type": "quantitative", "title": "Avg Study Score", "format": ".1f"},
+          {"field": "school_count", "type": "quantitative", "title": "Schools"}
+        ]
+      }
+    }
+  ]
+}
