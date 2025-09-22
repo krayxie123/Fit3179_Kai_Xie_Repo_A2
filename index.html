@@ -2,29 +2,43 @@
 <html lang="en">
 <head>
     <title>Victorian Schools VCE Analysis</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="js/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
-    <h2>Victorian Schools Dddddddddata Visualization</h2>
+    <div class="container">
+        <h2>Victorian Schools Data Visualization</h2>
     
-    <h3>Schools by Location Type</h3>
-    <div style = "display: flex; align-items: flex-start; margin-bottom: 30px;">
-        <img src="leopard.jpg" style="max-width: 400px; height: auto; margin-right: 24px;" />
-        <div id="Metro_vs_non_metro_symbol_map"></div>
+        <h3>Schools by Location Type</h3>
+        <div class="chart-container">
+            <img src="leopard.jpg" style="max-width: 400px; height: auto;" />
+            <div id="Metro_vs_non_metro_symbol_map"></div>
+        </div>
     </div>
     
 
 
-    <h3>Median VCE Study Scores by School</h3>
-    <div style="display: flex; gap: 20px; align-items: flex-start;">
-        <div id="vce_scores_map" style="flex: 1;"></div>
-        <div style="display: flex; flex-direction: column; gap: 20px;">
-            <div id="vce_sector_bar_chart"></div>
-            <div id="vce_region_bar_chart"></div>
+    <div class="container">
+        <h3>Median VCE Study Scores by School</h3>
+        <div class="chart-container">
+            <div id="vce_scores_map" style="flex: 1;"></div>
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <div id="vce_sector_bar_chart"></div>
+                <div id="vce_region_bar_chart"></div>
+            </div>
         </div>
+    </div>
+
+    <div class="container">
+        <h3>Average Class Sizes Over Time</h3>
+        <div id="class_size_timeline"></div>
+    </div>
+
+    <div class="container">
+        <h3>Average VCE Study Scores by Suburb</h3>
+        <div id="suburb_study_scores_map"></div>
     </div>
         <script type="text/javascript">
 
@@ -45,6 +59,16 @@
 
         var spec8 = "js/vce_region_bar_chart.json";
             vegaEmbed('#vce_region_bar_chart', spec8).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec9 = "js/class_size_timeline.json";
+            vegaEmbed('#class_size_timeline', spec9).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec10 = "js/working_choropleth.json";
+            vegaEmbed('#suburb_study_scores_map', spec10).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
         </script>

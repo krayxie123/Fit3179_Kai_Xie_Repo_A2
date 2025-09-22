@@ -1,0 +1,113 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Average Class Sizes in Victorian Government Schools (2001-2025)",
+  "description": "Timeline showing average class sizes for Year 12 and all secondary classes",
+  "width": 800,
+  "height": 400,
+  "data": {
+    "values": [
+      {"year": 2001, "class_type": "Year 12", "average_size": 21.2},
+      {"year": 2002, "class_type": "Year 12", "average_size": 20.6},
+      {"year": 2003, "class_type": "Year 12", "average_size": 20.2},
+      {"year": 2004, "class_type": "Year 12", "average_size": 20.2},
+      {"year": 2005, "class_type": "Year 12", "average_size": 19.9},
+      {"year": 2006, "class_type": "Year 12", "average_size": 19.5},
+      {"year": 2007, "class_type": "Year 12", "average_size": 19.7},
+      {"year": 2008, "class_type": "Year 12", "average_size": 19.7},
+      {"year": 2009, "class_type": "Year 12", "average_size": 19.4},
+      {"year": 2010, "class_type": "Year 12", "average_size": 19.6},
+      {"year": 2011, "class_type": "Year 12", "average_size": 19.2},
+      {"year": 2012, "class_type": "Year 12", "average_size": 19.0},
+      {"year": 2013, "class_type": "Year 12", "average_size": 19.3},
+      {"year": 2014, "class_type": "Year 12", "average_size": 19.2},
+      {"year": 2015, "class_type": "Year 12", "average_size": 19.5},
+      {"year": 2016, "class_type": "Year 12", "average_size": 19.0},
+      {"year": 2017, "class_type": "Year 12", "average_size": 19.0},
+      {"year": 2018, "class_type": "Year 12", "average_size": 19.0},
+      {"year": 2019, "class_type": "Year 12", "average_size": 18.9},
+      {"year": 2020, "class_type": "Year 12", "average_size": 19.2},
+      {"year": 2021, "class_type": "Year 12", "average_size": 19.2},
+      {"year": 2022, "class_type": "Year 12", "average_size": 18.9},
+      {"year": 2023, "class_type": "Year 12", "average_size": 18.8},
+      {"year": 2024, "class_type": "Year 12", "average_size": 19.3},
+      {"year": 2025, "class_type": "Year 12", "average_size": 19.7},
+      {"year": 2001, "class_type": "All Classes", "average_size": 22.5},
+      {"year": 2002, "class_type": "All Classes", "average_size": 22.2},
+      {"year": 2003, "class_type": "All Classes", "average_size": 22.0},
+      {"year": 2004, "class_type": "All Classes", "average_size": 21.9},
+      {"year": 2005, "class_type": "All Classes", "average_size": 21.9},
+      {"year": 2006, "class_type": "All Classes", "average_size": 21.5},
+      {"year": 2007, "class_type": "All Classes", "average_size": 21.6},
+      {"year": 2008, "class_type": "All Classes", "average_size": 21.6},
+      {"year": 2009, "class_type": "All Classes", "average_size": 21.6},
+      {"year": 2010, "class_type": "All Classes", "average_size": 21.5},
+      {"year": 2011, "class_type": "All Classes", "average_size": 21.4},
+      {"year": 2012, "class_type": "All Classes", "average_size": 21.4},
+      {"year": 2013, "class_type": "All Classes", "average_size": 21.4},
+      {"year": 2014, "class_type": "All Classes", "average_size": 21.4},
+      {"year": 2015, "class_type": "All Classes", "average_size": 21.3},
+      {"year": 2016, "class_type": "All Classes", "average_size": 21.2},
+      {"year": 2017, "class_type": "All Classes", "average_size": 21.1},
+      {"year": 2018, "class_type": "All Classes", "average_size": 21.2},
+      {"year": 2019, "class_type": "All Classes", "average_size": 21.3},
+      {"year": 2020, "class_type": "All Classes", "average_size": 21.3},
+      {"year": 2021, "class_type": "All Classes", "average_size": 21.4},
+      {"year": 2022, "class_type": "All Classes", "average_size": 21.2},
+      {"year": 2023, "class_type": "All Classes", "average_size": 21.4},
+      {"year": 2024, "class_type": "All Classes", "average_size": 21.3},
+      {"year": 2025, "class_type": "All Classes", "average_size": 21.5}
+    ]
+  },
+  "mark": {
+    "type": "line",
+    "point": true,
+    "strokeWidth": 3
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "temporal",
+      "title": "Year",
+      "axis": {
+        "titleFontSize": 14,
+        "labelFontSize": 12
+      }
+    },
+    "y": {
+      "field": "average_size",
+      "type": "quantitative",
+      "title": "Average Class Size",
+      "scale": {
+        "domain": [18, 23]
+      },
+      "axis": {
+        "titleFontSize": 14,
+        "labelFontSize": 12
+      }
+    },
+    "color": {
+      "field": "class_type",
+      "type": "nominal",
+      "title": "Class Type",
+      "scale": {
+        "domain": ["Year 12", "All Classes"],
+        "range": ["#1f77b4", "#ff7f0e"]
+      },
+      "legend": {
+        "titleFontSize": 14,
+        "labelFontSize": 12
+      }
+    },
+    "tooltip": [
+      {"field": "year", "type": "temporal", "title": "Year"},
+      {"field": "class_type", "type": "nominal", "title": "Class Type"},
+      {"field": "average_size", "type": "quantitative", "title": "Average Size", "format": ".1f"}
+    ]
+  },
+  "config": {
+    "title": {
+      "fontSize": 18,
+      "fontWeight": "bold"
+    }
+  }
+}
