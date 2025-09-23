@@ -32,7 +32,7 @@
           }
         },
         {
-          "calculate": "datum.avg_study_score != null ? datum.avg_study_score : 0.1",
+          "calculate": "datum.avg_study_score != null ? datum.avg_study_score : 10",
           "as": "study_score_with_offset"
         }
       ],

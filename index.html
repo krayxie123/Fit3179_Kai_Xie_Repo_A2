@@ -40,6 +40,29 @@
         <h3>Average VCE Study Scores by Suburb</h3>
         <div id="suburb_study_scores_map"></div>
     </div>
+
+    <div class="container">
+        <h3>School Density Map (Hexagonal Binning)</h3>
+        <div id="school_hexbin_map"></div>
+    </div>
+
+    <div class="container">
+        <h3>Schools: VCE Study Scores vs University Enrollment</h3>
+        <div style="display: flex; gap: 20px;">
+            <div id="school_bubble_chart" style="flex: 2;"></div>
+            <div id="education_sector_pie_chart" style="flex: 1;"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>VCE Student Pathways: From Year 12 to Destinations</h3>
+        <div id="vce_pathways_sankey_new"></div>
+    </div>
+
+    <div class="container">
+        <h3>Microsoft's FY23 Q2 Income Statement (Sankey Example)</h3>
+        <div id="sankey_example"></div>
+    </div>
         <script type="text/javascript">
 
         var spec1 = "js/Metro_vs_non_metro_symbol_map.json";
@@ -69,6 +92,31 @@
 
         var spec10 = "js/suburb_dots_map.json";
             vegaEmbed('#suburb_study_scores_map', spec10).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec13 = "js/school_hexbin_map.json";
+            vegaEmbed('#school_hexbin_map', spec13).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec11 = "js/school_bubble_chart.json";
+            vegaEmbed('#school_bubble_chart', spec11).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec12 = "js/education_sector_pie_chart.json";
+            vegaEmbed('#education_sector_pie_chart', spec12).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec14 = "js/vce_pathways_sankey_new.json";
+            vegaEmbed('#vce_pathways_sankey_new', spec14).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec15 = "sankey.json";
+            vegaEmbed('#sankey_example', spec15).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
         </script>

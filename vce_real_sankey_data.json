@@ -1,0 +1,130 @@
+{
+  "nodes": [
+    {
+      "category": "Government",
+      "stack": 1,
+      "sort": 1,
+      "labels": "left"
+    },
+    {
+      "category": "Catholic",
+      "stack": 1,
+      "sort": 2,
+      "labels": "left"
+    },
+    {
+      "category": "Independent",
+      "stack": 1,
+      "sort": 3,
+      "labels": "left"
+    },
+    {
+      "category": "Other",
+      "stack": 1,
+      "sort": 4,
+      "labels": "left"
+    },
+    {
+      "category": "University",
+      "stack": 2,
+      "sort": 1
+    },
+    {
+      "category": "TAFE/VET",
+      "stack": 2,
+      "sort": 2
+    },
+    {
+      "category": "Employment",
+      "stack": 2,
+      "sort": 3
+    },
+    {
+      "category": "Other Destinations",
+      "stack": 2,
+      "sort": 4
+    }
+  ],
+  "links": [
+    {
+      "source": "Government",
+      "destination": "University",
+      "value": 9521
+    },
+    {
+      "source": "Government",
+      "destination": "TAFE/VET",
+      "value": 3846
+    },
+    {
+      "source": "Government",
+      "destination": "Employment",
+      "value": 3870
+    },
+    {
+      "source": "Government",
+      "destination": "Other Destinations",
+      "value": 192
+    },
+    {
+      "source": "Catholic",
+      "destination": "University",
+      "value": 6575
+    },
+    {
+      "source": "Catholic",
+      "destination": "TAFE/VET",
+      "value": 1297
+    },
+    {
+      "source": "Catholic",
+      "destination": "Employment",
+      "value": 984
+    },
+    {
+      "source": "Catholic",
+      "destination": "Other Destinations",
+      "value": 55
+    },
+    {
+      "source": "Independent",
+      "destination": "University",
+      "value": 6012
+    },
+    {
+      "source": "Independent",
+      "destination": "TAFE/VET",
+      "value": 733
+    },
+    {
+      "source": "Independent",
+      "destination": "Employment",
+      "value": 418
+    },
+    {
+      "source": "Independent",
+      "destination": "Other Destinations",
+      "value": 26
+    },
+    {
+      "source": "Other",
+      "destination": "University",
+      "value": 6
+    },
+    {
+      "source": "Other",
+      "destination": "TAFE/VET",
+      "value": 4
+    },
+    {
+      "source": "Other",
+      "destination": "Employment",
+      "value": 2
+    },
+    {
+      "source": "Other",
+      "destination": "Other Destinations",
+      "value": 0
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Distribution of Schools by Education Sector",
+  "width": 400,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/data/dv402-SchoolLocations2025.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.Education_Sector != null && datum.Education_Sector != ''"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "count",
+          "as": "count"
+        }
+      ],
+      "groupby": ["Education_Sector"]
+    }
+  ],
+  "mark": {
+    "type": "arc",
+    "innerRadius": 50,
+    "stroke": "white",
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "theta": {
+      "field": "count",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "Education_Sector",
+      "type": "nominal",
+      "title": "Education Sector",
+      "scale": {
+        "domain": ["Government", "Catholic", "Independent"],
+        "range": ["#1f77b4", "#ffd700", "#2ca02c"]
+      }
+    },
+    "tooltip": [
+      {"field": "Education_Sector", "type": "nominal", "title": "Education Sector"},
+      {"field": "count", "type": "quantitative", "title": "Number of Schools"}
+    ]
+  },
+  "config": {
+    "title": {
+      "fontSize": 16,
+      "fontWeight": "bold"
+    }
+  }
+}
