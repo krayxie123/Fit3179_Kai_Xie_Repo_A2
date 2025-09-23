@@ -5,23 +5,16 @@
   "height": 600,
   "projection": {"type": "mercator"},
   "data": {
-    "url": "georef-australia-local-government-area@public.geojson",
-    "format": {"type": "geojson"}
+    "url": "output (1).json",
+    "format": {"type": "topojson", "feature": "MB_2016_VIC"}
   },
   "transform": [
     {
-      "filter": "datum.properties.ste_name && datum.properties.ste_name[0] === 'Victoria'"
-    },
-    {
-      "calculate": "datum.properties.lga_name[0]",
-      "as": "lga_name_str"
-    },
-    {
-      "lookup": "lga_name_str",
+      "lookup": "SA2_NAME16",
       "from": {
-        "data": {"url": "js/working_choropleth.csv"},
-        "key": "lga_name",
-        "fields": ["avg_study_score", "school_count"]
+        "data": {"url": "js/suburb_study_scores.csv"},
+        "key": "SA2_NAME16",
+        "fields": ["avg_study_score", "school_count", "suburb"]
       }
     }
   ],
@@ -45,7 +38,7 @@
       }
     },
     "tooltip": [
-      {"field": "lga_name_str", "type": "nominal", "title": "Suburb"},
+      {"field": "suburb", "type": "nominal", "title": "Suburb"},
       {"field": "avg_study_score", "type": "quantitative", "title": "Avg Study Score", "format": ".1f"},
       {"field": "school_count", "type": "quantitative", "title": "Schools"}
     ]
