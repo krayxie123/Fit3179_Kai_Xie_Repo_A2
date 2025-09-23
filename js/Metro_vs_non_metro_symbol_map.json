@@ -7,8 +7,8 @@
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/output%20(1).json",
-        "format": {"type": "topojson", "feature": "MB_2016_VIC"}
+        "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/js/suburb-10-vic.json",
+        "format": {"type": "topojson", "feature": "suburb-10-vic"}
       },
       "mark": {"type": "geoshape", "fill": "#f5f5f5", "stroke": "#ccc"}
     },
