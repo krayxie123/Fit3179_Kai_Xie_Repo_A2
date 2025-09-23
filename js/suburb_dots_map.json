@@ -30,6 +30,10 @@
             "key": "suburb",
             "fields": ["avg_study_score", "school_count"]
           }
+        },
+        {
+          "calculate": "datum.avg_study_score != null ? datum.avg_study_score : 0.1",
+          "as": "study_score_with_offset"
         }
       ],
       "mark": {
@@ -39,11 +43,11 @@
       },
       "encoding": {
         "color": {
-          "field": "avg_study_score",
+          "field": "study_score_with_offset",
           "type": "quantitative",
           "title": "Average Study Score",
           "scale": {
-            "domain": [20, 37],
+            "domain": [0.1, 37],
             "range": ["#fee5d9", "#a50f15"],
             "scheme": "reds"
           },
