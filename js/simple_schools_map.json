@@ -7,14 +7,14 @@
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/js/suburb-10-vic.geojson",
-        "format": {"type": "topojson", "feature": "suburb-10-vic"}
+        "url": "js/vicsuburbsgood.topojson",
+        "format": {"type": "topojson", "feature": "vicsuburbsgood"}
       },
       "mark": {"type": "geoshape", "fill": "#f5f5f5", "stroke": "#ccc", "strokeWidth": 0.5}
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/data/dv402-SchoolLocations2025.csv"
+        "url": "data/dv402-SchoolLocations2025.csv"
       },
       "mark": {
         "type": "circle",
