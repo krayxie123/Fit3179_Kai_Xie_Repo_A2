@@ -4,58 +4,51 @@
   "width": 800,
   "height": 600,
   "projection": {"type": "mercator"},
-  "layer": [
+  "data": {
+    "url": "georef-australia-local-government-area@public.geojson",
+    "format": {"type": "geojson"}
+  },
+  "transform": [
     {
-      "data": {
-        "url": "output (1).json",
-        "format": {"type": "topojson", "feature": "MB_2016_VIC"}
-      },
-      "mark": {"type": "geoshape", "fill": "#f5f5f5", "stroke": "#ccc", "strokeWidth": 0.5}
+      "filter": "datum.properties.ste_name && datum.properties.ste_name[0] === 'Victoria'"
     },
     {
-      "data": {
-        "url": "output (1).json",
-        "format": {"type": "topojson", "feature": "MB_2016_VIC"}
-      },
-      "transform": [
-        {
-          "lookup": "SA2_NAME16",
-          "from": {
-            "data": {"url": "js/suburb_study_scores.csv"},
-            "key": "suburb",
-            "fields": ["avg_study_score", "school_count"]
-          }
-        },
-        {
-          "filter": "datum.avg_study_score != null"
-        }
-      ],
-      "mark": {
-        "type": "geoshape",
-        "stroke": "white",
-        "strokeWidth": 0.5
-      },
-      "encoding": {
-        "color": {
-          "field": "avg_study_score",
-          "type": "quantitative",
-          "title": "Average Study Score",
-          "scale": {
-            "domain": [20, 37],
-            "range": ["#fee5d9", "#a50f15"],
-            "scheme": "reds"
-          },
-          "legend": {
-            "title": "Average Study Score",
-            "orient": "bottom"
-          }
-        },
-        "tooltip": [
-          {"field": "SA2_NAME16", "type": "nominal", "title": "Suburb"},
-          {"field": "avg_study_score", "type": "quantitative", "title": "Avg Study Score", "format": ".1f"},
-          {"field": "school_count", "type": "quantitative", "title": "Schools"}
-        ]
+      "calculate": "datum.properties.lga_name[0]",
+      "as": "lga_name_str"
+    },
+    {
+      "lookup": "lga_name_str",
+      "from": {
+        "data": {"url": "js/working_choropleth.csv"},
+        "key": "lga_name",
+        "fields": ["avg_study_score", "school_count"]
       }
     }
-  ]
+  ],
+  "mark": {
+    "type": "geoshape",
+    "stroke": "white",
+    "strokeWidth": 0.5
+  },
+  "encoding": {
+    "color": {
+      "field": "avg_study_score",
+      "type": "quantitative",
+      "title": "Average Study Score",
+      "scale": {
+        "domain": [20, 37],
+        "range": ["#fee5d9", "#a50f15"]
+      },
+      "legend": {
+        "title": "Average Study Score",
+        "orient": "bottom"
+      }
+    },
+    "tooltip": [
+      {"field": "lga_name_str", "type": "nominal", "title": "Suburb"},
+      {"field": "avg_study_score", "type": "quantitative", "title": "Avg Study Score", "format": ".1f"},
+      {"field": "school_count", "type": "quantitative", "title": "Schools"}
+    ]
+  }
 }
+
