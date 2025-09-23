@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Average VCE Study Scores by Suburb (2024) - Choropleth Map",
-  "width": 800,
-  "height": 600,
+  "width": 1600,
+  "height":1000,
   "projection": {"type": "mercator"},
   "layer": [
     {
