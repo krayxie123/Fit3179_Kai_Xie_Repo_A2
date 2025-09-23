@@ -1,20 +1,20 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Average VCE Study Scores by Suburb (2024)",
   "width": 800,
   "height": 600,
   "projection": {"type": "mercator"},
   "data": {
-    "url": "output (1).json",
+    "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/MB_2016_VIC.topojson",
     "format": {"type": "topojson", "feature": "MB_2016_VIC"}
   },
   "transform": [
     {
       "lookup": "SA2_NAME16",
       "from": {
-        "data": {"url": "js/suburb_study_scores.csv"},
-        "key": "SA2_NAME16",
-        "fields": ["avg_study_score", "school_count", "suburb"]
+        "data": {"url": "data/suburb_study_scores.csv"},
+        "key": "suburb",
+        "fields": ["avg_study_score", "school_count"]
       }
     }
   ],
@@ -38,7 +38,7 @@
       }
     },
     "tooltip": [
-      {"field": "suburb", "type": "nominal", "title": "Suburb"},
+      {"field": "SA2_NAME16", "type": "nominal", "title": "Suburb"},
       {"field": "avg_study_score", "type": "quantitative", "title": "Avg Study Score", "format": ".1f"},
       {"field": "school_count", "type": "quantitative", "title": "Schools"}
     ]
