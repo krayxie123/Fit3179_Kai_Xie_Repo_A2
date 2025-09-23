@@ -1,44 +1,43 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Average VCE Study Scores by Suburb (2024)",
+  "title": "Average VCE Study Scores by Suburb (2024) - Choropleth Map",
   "width": 800,
   "height": 600,
   "projection": {"type": "mercator"},
   "layer": [
     {
       "data": {
-        "url": "js/vicsuburbsgood.topojson",
-        "format": {"type": "topojson", "feature": "vicsuburbsgood"}
+        "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/js/vicsuburbsgood.topojson",
+        "format": {"type": "topojson", "feature": "Vicsubs.topojson"}
       },
-      "mark": {"type": "geoshape", "fill": "#f5f5f5", "stroke": "#ccc", "strokeWidth": 0.5}
+      "mark": {
+        "type": "geoshape",
+        "fill": "#f5f5f5",
+        "stroke": "#ccc",
+        "strokeWidth": 1
+      }
     },
     {
       "data": {
-        "url": "data/suburb_study_scores.csv"
+        "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/js/vicsuburbsgood.topojson",
+        "format": {"type": "topojson", "feature": "Vicsubs.topojson"}
       },
       "transform": [
         {
-          "lookup": "suburb",
+          "lookup": "properties.vic_loca_2",
           "from": {
-            "data": {"url": "data/dv402-SchoolLocations2025.csv"},
-            "key": "Address_Town",
-            "fields": ["X", "Y"]
+            "data": {"url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/data/suburb_study_scores_updated.csv"},
+            "key": "suburb",
+            "fields": ["avg_study_score", "school_count"]
           }
-        },
-        {
-          "filter": "datum.X != null && datum.Y != null"
         }
       ],
       "mark": {
-        "type": "circle",
-        "size": 200,
-        "opacity": 0.8,
+        "type": "geoshape",
         "stroke": "white",
-        "strokeWidth": 2
+        "strokeWidth": 0.5
       },
       "encoding": {
-        "longitude": {"field": "X", "type": "quantitative"},
-        "latitude": {"field": "Y", "type": "quantitative"},
         "color": {
           "field": "avg_study_score",
           "type": "quantitative",
@@ -53,21 +52,8 @@
             "orient": "bottom"
           }
         },
-        "size": {
-          "field": "school_count",
-          "type": "quantitative",
-          "title": "Number of Schools",
-          "scale": {
-            "domain": [2, 10],
-            "range": [100, 400]
-          },
-          "legend": {
-            "title": "Number of Schools",
-            "orient": "bottom"
-          }
-        },
         "tooltip": [
-          {"field": "suburb", "type": "nominal", "title": "Suburb"},
+          {"field": "properties.vic_loca_2", "type": "nominal", "title": "Suburb"},
           {"field": "avg_study_score", "type": "quantitative", "title": "Avg Study Score", "format": ".1f"},
           {"field": "school_count", "type": "quantitative", "title": "Schools"}
         ]

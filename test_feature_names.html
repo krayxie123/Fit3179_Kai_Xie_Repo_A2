@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Feature Name Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+    <h2>Testing Different Feature Names</h2>
+    <div id="test1"></div>
+    <div id="test2"></div>
+    <div id="test3"></div>
+    
+    <script type="text/javascript">
+        // Test 1: No feature name
+        var spec1 = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "title": "Test 1: No feature name",
+            "width": 300,
+            "height": 200,
+            "projection": {"type": "mercator"},
+            "data": {
+                "url": "js/vicsuburbsgood.topojson",
+                "format": {"type": "topojson"}
+            },
+            "mark": {"type": "geoshape", "fill": "#f5f5f5", "stroke": "#ccc"}
+        };
+        
+        // Test 2: Common feature names
+        var spec2 = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "title": "Test 2: Feature 'vic'",
+            "width": 300,
+            "height": 200,
+            "projection": {"type": "mercator"},
+            "data": {
+                "url": "js/vicsuburbsgood.topojson",
+                "format": {"type": "topojson", "feature": "vic"}
+            },
+            "mark": {"type": "geoshape", "fill": "#f5f5f5", "stroke": "#ccc"}
+        };
+        
+        // Test 3: Another common name
+        var spec3 = {
+            "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+            "title": "Test 3: Feature 'features'",
+            "width": 300,
+            "height": 200,
+            "projection": {"type": "mercator"},
+            "data": {
+                "url": "js/vicsuburbsgood.topojson",
+                "format": {"type": "topojson", "feature": "features"}
+            },
+            "mark": {"type": "geoshape", "fill": "#f5f5f5", "stroke": "#ccc"}
+        };
+        
+        vegaEmbed('#test1', spec1).then(function(result) {
+            console.log("Test 1 loaded successfully");
+        }).catch(function(error) {
+            console.error("Test 1 error:", error);
+        });
+        
+        vegaEmbed('#test2', spec2).then(function(result) {
+            console.log("Test 2 loaded successfully");
+        }).catch(function(error) {
+            console.error("Test 2 error:", error);
+        });
+        
+        vegaEmbed('#test3', spec3).then(function(result) {
+            console.log("Test 3 loaded successfully");
+        }).catch(function(error) {
+            console.error("Test 3 error:", error);
+        });
+    </script>
+</body>
+</html>

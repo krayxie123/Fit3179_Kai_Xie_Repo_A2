@@ -7,20 +7,20 @@
   "layer": [
     {
       "data": {
-        "url": "js/vicsuburbsgood.topojson",
-        "format": {"type": "topojson", "feature": "vicsuburbsgood"}
+        "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/js/vicsuburbsgood.topojson",
+        "format": {"type": "topojson", "feature": "Vicsubs.topojson"}
       },
       "mark": {"type": "geoshape", "fill": "#f5f5f5", "stroke": "#ccc", "strokeWidth": 0.5}
     },
     {
       "data": {
-        "url": "data/dv402-SchoolLocations2025.csv"
+        "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/data/dv402-SchoolLocations2025.csv"
       },
       "transform": [
         {
           "lookup": "School_Name",
           "from": {
-            "data": {"url": "data/VCE 2024 Results.csv"},
+            "data": {"url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/data/VCE 2024 Results.csv"},
             "key": "School",
             "fields": ["Median VCE study score"]
           }
