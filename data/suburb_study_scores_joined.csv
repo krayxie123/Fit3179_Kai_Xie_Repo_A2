@@ -1,0 +1,333 @@
+suburb,avg_study_score,median_study_score,school_count,std_study_score,total_schools
+ABERFELDIE,31.0,31.0,1,,1
+ALPHINGTON,30.0,30.0,1,,1
+ALTONA,31.0,31.0,1,,1
+ALTONA NORTH,29.0,29.0,2,1.41,2
+ARMADALE,34.0,34.0,1,,1
+ARMSTRONG CREEK,30.0,30.0,1,,1
+Albert Park,31.0,31.0,1,,1
+Alexandra,24.0,24.0,1,,1
+Altona,26.0,26.0,1,,1
+Apollo Bay,30.0,30.0,1,,1
+Ararat,26.0,26.0,1,,1
+Armstrong Creek,28.0,28.0,1,,1
+Ashwood,31.0,31.0,1,,1
+BACCHUS MARSH,32.0,32.0,1,,1
+BAIRNSDALE,28.0,28.0,1,,1
+BALLARAT,34.0,34.0,2,4.24,2
+BANGHOLME,30.0,30.0,1,,1
+BEACONSFIELD,27.0,27.0,1,,1
+BELGRAVE,31.0,31.0,1,,1
+BELL POST HILL,29.0,29.0,1,,1
+BENDIGO,29.5,29.5,2,2.12,2
+BOX HILL,32.0,32.0,2,0.0,2
+BRIGHTON,34.33,34.0,3,0.58,3
+BRIGHTON EAST,34.0,34.0,1,,1
+BROADMEADOWS,29.0,28.0,3,2.65,3
+BROOKFIELD,26.0,26.0,1,,1
+BULLEEN,31.0,31.0,1,,1
+BUNDOORA,30.0,30.0,2,0.0,2
+BURWOOD,36.5,36.5,2,0.71,2
+Bacchus Marsh,24.0,24.0,1,,1
+Bairnsdale,26.0,26.0,1,,1
+Ballarat East,27.0,27.0,1,,1
+Balwyn North,32.0,32.0,1,,1
+Bannockburn,23.0,23.0,1,,1
+Bayswater,26.0,26.0,1,,1
+Beaufort,27.0,27.0,1,,1
+Beaumaris,30.0,30.0,1,,1
+Beechworth,28.0,28.0,1,,1
+Belmont,29.0,29.0,1,,1
+Benalla,24.0,24.0,1,,1
+Bentleigh East,30.0,30.0,1,,1
+Berwick,32.0,31.0,3,3.61,3
+Birchip,31.0,31.0,1,,1
+Blackburn,31.0,31.0,1,,1
+Boort,30.0,30.0,1,,1
+Boronia,27.0,27.0,1,,1
+Box Hill,32.0,32.0,1,,1
+Braybrook,31.0,31.0,1,,1
+Bright,29.0,29.0,1,,1
+Brighton East,30.0,30.0,1,,1
+Broadford,22.0,22.0,1,,1
+Brunswick,26.0,26.0,2,5.66,2
+Bundoora,26.0,26.0,1,,1
+Burwood East,29.0,29.0,1,,1
+CAMPERDOWN,27.0,27.0,1,,1
+CANTERBURY,34.0,34.0,1,,1
+CAROLINE SPRINGS,29.0,29.0,1,,1
+CHARLEMONT,33.0,33.0,1,,1
+CHIRNSIDE PARK,34.0,34.0,1,,1
+CLYDE NORTH,29.0,29.0,1,,1
+COBRAM,26.0,26.0,1,,1
+COBURG,29.0,29.0,1,,1
+COLAC,28.0,28.0,1,,1
+CORIO,32.0,32.0,1,,1
+CRANBOURNE,26.0,26.0,1,,1
+CRANBOURNE EAST,30.0,30.0,1,,1
+CROYDON HILLS,32.0,32.0,1,,1
+Camperdown,28.0,28.0,1,,1
+Cann River,24.0,24.0,1,,1
+Canterbury,30.0,30.0,1,,1
+Caroline Springs,27.0,27.0,1,,1
+Casterton,28.0,28.0,1,,1
+Castlemaine,26.0,26.0,1,,1
+Caulfield East,31.0,31.0,1,,1
+Charlton,30.0,30.0,1,,1
+Cheltenham,28.0,28.0,1,,1
+Clayton,36.0,36.0,1,,1
+Clayton South,24.0,24.0,1,,1
+Cobden,24.0,24.0,1,,1
+Cobram,24.0,24.0,1,,1
+Coburg,30.0,30.0,1,,1
+Cohuna,28.0,28.0,1,,1
+Colac,23.0,23.0,1,,1
+Collingwood,28.0,28.0,1,,1
+Corio,24.0,24.0,1,,1
+Corryong,31.0,31.0,1,,1
+Craigieburn,25.0,24.0,3,4.58,3
+Cranbourne,25.5,25.5,2,2.12,2
+Cranbourne North,29.0,29.0,1,,1
+DANDENONG,27.0,27.0,1,,1
+DONVALE,31.5,31.5,2,2.12,2
+DOREEN,29.0,29.0,1,,1
+DROUIN,29.5,29.5,2,2.12,2
+Dandenong,25.0,25.0,1,,1
+Dandenong North,26.0,26.0,1,,1
+Daylesford,29.0,29.0,1,,1
+Delahey,27.0,27.0,1,,1
+Diamond Creek,25.0,25.0,1,,1
+Dingee,28.0,28.0,1,,1
+Donald,29.0,29.0,1,,1
+Doncaster,32.0,32.0,1,,1
+Doreen,26.0,26.0,1,,1
+Dromana,32.0,32.0,1,,1
+Drouin,25.0,25.0,1,,1
+Drysdale,28.0,28.0,1,,1
+EAST PRESTON,21.0,21.0,1,,1
+ECHUCA,29.0,29.0,4,2.58,4
+ELSTERNWICK,35.0,35.0,1,,1
+ELWOOD,28.0,28.0,1,,1
+ENDEAVOUR HILLS,31.0,31.0,1,,1
+EPPING,30.0,30.0,2,1.41,2
+ESSENDON,31.0,31.0,2,0.0,2
+East Geelong,27.0,27.0,1,,1
+Echuca,24.0,24.0,1,,1
+Edenhope,25.0,25.0,1,,1
+Eltham,29.0,29.0,1,,1
+Eltham North,29.0,29.0,1,,1
+Elwood,31.0,31.0,1,,1
+Emerald,28.0,28.0,1,,1
+Endeavour Hills,29.0,29.0,1,,1
+Epping,28.0,28.0,1,,1
+Essendon,29.0,29.0,1,,1
+Euroa,26.0,26.0,1,,1
+FAWKNER NORTH,31.0,31.0,1,,1
+FERNTREE GULLY,29.0,29.0,4,2.58,4
+FITZROY,32.0,32.0,1,,1
+FRANKSTON,28.0,28.0,1,,1
+Fitzroy North,28.0,28.0,1,,1
+Footscray,29.0,29.0,1,,1
+Foster,30.0,30.0,1,,1
+Frankston,30.5,30.5,2,0.71,2
+Frankston North,21.0,21.0,1,,1
+GLEN IRIS,35.0,35.0,2,0.0,2
+GLENROY,23.0,23.0,1,,1
+GREENVALE,28.0,28.0,1,,1
+GREENVALE LAKES,27.0,27.0,1,,1
+Gisborne,27.0,27.0,1,,1
+Glen Waverley,29.5,29.5,2,0.71,2
+Grovedale,25.0,25.0,1,,1
+HAMILTON,25.5,25.5,2,2.12,2
+HAWTHORN,35.0,35.0,2,1.41,2
+HAWTHORN EAST,24.0,24.0,1,,1
+HEIDELBERG,32.0,32.0,1,,1
+HERNE HILL,29.0,29.0,1,,1
+HORSHAM,28.5,28.5,2,2.12,2
+HUGHESDALE,32.0,32.0,1,,1
+Hamilton,26.0,26.0,1,,1
+Hawthorn East,31.0,31.0,1,,1
+Healesville,27.0,27.0,1,,1
+Heathmont,25.0,25.0,1,,1
+Hopetoun,27.0,27.0,1,,1
+Hoppers Crossing,25.0,25.0,1,,1
+Horsham,29.0,29.0,1,,1
+IVANHOE,34.0,34.0,3,1.0,3
+KERANG,29.0,29.0,1,,1
+KEW,34.67,34.0,3,2.08,3
+KEYSBOROUGH,31.25,30.0,4,3.2,4
+KIALLA,25.0,25.0,1,,1
+KILMORE,28.0,28.0,1,,1
+KYABRAM,27.0,27.0,1,,1
+KYNETON,27.0,27.0,1,,1
+Keilor East,26.0,26.0,1,,1
+Kerang,26.0,26.0,1,,1
+Kew East,30.0,30.0,1,,1
+Knoxfield,26.0,26.0,1,,1
+Kurunjang,24.0,24.0,1,,1
+Kyabram,23.0,23.0,1,,1
+LAKE GARDENS,29.0,29.0,1,,1
+LANGWARRIN SOUTH,30.5,30.5,2,0.71,2
+LILYDALE,28.5,28.5,2,0.71,2
+LOVELY BANKS,24.0,24.0,1,,1
+Lalor,26.0,26.0,1,,1
+Langwarrin,31.0,31.0,1,,1
+Lara,25.0,25.0,1,,1
+Laverton,24.0,24.0,1,,1
+Leongatha,29.0,29.0,1,,1
+Lilydale,26.5,26.5,2,0.71,2
+Lorne,23.0,23.0,1,,1
+MACEDON,32.0,32.0,1,,1
+MAIDEN GULLY,27.0,27.0,1,,1
+MALVERN,30.0,30.0,1,,1
+MELBOURNE,29.4,31.0,5,5.98,5
+MELTON,29.0,29.0,1,,1
+MELTON SOUTH,26.0,26.0,1,,1
+MELTON WEST,31.0,31.0,1,,1
+MENTONE,33.25,33.5,4,2.75,4
+MICKLEHAM,30.0,30.0,1,,1
+MOOROOLBARK,31.0,31.0,1,,1
+MORNINGTON,29.0,29.0,1,,1
+MOUNT CLEAR,29.0,29.0,1,,1
+MOUNT WAVERLEY,32.0,32.0,1,,1
+MT ELIZA,33.5,33.5,2,0.71,2
+MT MARTHA,30.0,30.0,1,,1
+MT WAVERLEY,37.0,37.0,1,,1
+MULGRAVE,33.0,33.0,1,,1
+Macleod,28.0,28.0,1,,1
+Macleod West,24.0,24.0,1,,1
+Maffra,28.0,28.0,1,,1
+Mallacoota,33.0,33.0,1,,1
+Mansfield,29.0,29.0,1,,1
+Maryborough,26.0,26.0,1,,1
+Mckinnon,33.0,33.0,1,,1
+Melton,24.0,24.0,1,,1
+Melton South,25.0,25.0,1,,1
+Mernda,28.0,28.0,1,,1
+Mildura,26.0,26.0,1,,1
+Mill Park,26.0,26.0,1,,1
+Monbulk,25.0,25.0,1,,1
+Mont Albert North,32.0,32.0,1,,1
+Mooroolbark,28.0,28.0,1,,1
+Mordialloc,30.0,30.0,2,0.0,2
+Mornington,27.0,27.0,1,,1
+Morwell,24.0,24.0,1,,1
+Mount Clear,26.0,26.0,1,,1
+Mulgrave,29.0,29.0,1,,1
+Murrayville,28.0,28.0,1,,1
+Myrtleford,24.0,24.0,1,,1
+NARRE WARREN SOUTH,27.0,27.0,1,,1
+NEWTOWN,30.0,30.0,2,4.24,2
+NOBLE PARK NORTH,28.0,28.0,1,,1
+NORTH MELBOURNE,31.0,31.0,1,,1
+NORTHCOTE,30.0,30.0,1,,1
+Nathalia,20.0,20.0,1,,1
+Newborough,26.0,26.0,1,,1
+Newcomb,25.0,25.0,1,,1
+Nhill,23.0,23.0,1,,1
+Niddrie,29.0,29.0,1,,1
+Noble Park,26.0,26.0,2,1.41,2
+Northcote,30.0,30.0,1,,1
+Numurkah,24.0,24.0,1,,1
+OAKLEIGH,31.0,31.0,1,,1
+ORMOND,33.0,33.0,1,,1
+Officer,28.0,28.0,1,,1
+Ouyen,29.0,29.0,1,,1
+PAKENHAM,30.0,30.0,2,1.41,2
+PASCOE VALE SOUTH,26.0,26.0,1,,1
+PORTLAND,27.0,27.0,1,,1
+Pakenham,27.0,27.0,1,,1
+Parkville,31.0,31.0,1,,1
+Portland,24.0,24.0,1,,1
+Preston,29.0,29.0,1,,1
+RESEARCH,31.0,31.0,1,,1
+RHYLL,30.0,30.0,1,,1
+RINGWOOD,29.0,29.0,1,,1
+RINGWOOD EAST,34.0,34.0,1,,1
+Rainbow,24.0,24.0,1,,1
+Red Cliffs,23.0,23.0,1,,1
+Reservoir,28.0,28.0,1,,1
+Richmond,28.0,28.0,1,,1
+Ringwood,29.5,29.5,2,0.71,2
+Robinvale,23.0,23.0,1,,1
+Rochester,27.0,27.0,1,,1
+Rosebud,27.0,27.0,1,,1
+Rowville,25.0,25.0,1,,1
+Roxburgh Park,23.0,23.0,1,,1
+Rutherglen,21.0,21.0,1,,1
+SALE,30.0,30.0,2,1.41,2
+SEBASTOPOL,25.0,25.0,1,,1
+SEYMOUR,36.0,36.0,1,,1
+SHEPPARTON,28.0,28.0,1,,1
+SOUTH MORANG,28.0,28.0,1,,1
+SOUTH YARRA,36.0,36.0,1,,1
+SPRINGVALE,28.0,28.0,3,2.0,3
+ST KILDA,33.0,33.0,1,,1
+ST KILDA EAST,34.75,34.5,4,1.71,4
+STRATHDALE,29.0,29.0,1,,1
+SUNBURY,27.0,27.0,2,0.0,2
+SWAN HILL,29.0,29.0,1,,1
+Sale,24.0,24.0,1,,1
+Sandringham,31.0,31.0,1,,1
+Sassafras,26.0,26.0,1,,1
+Scoresby,28.0,28.0,1,,1
+Sea Lake,28.0,28.0,1,,1
+Seymour,25.0,25.0,1,,1
+Somerville,28.0,28.0,1,,1
+South Morang,30.0,30.0,1,,1
+South Yarra,36.0,36.0,1,,1
+St Albans,31.0,31.0,1,,1
+St Arnaud,26.0,26.0,1,,1
+Stawell,23.0,23.0,1,,1
+Strathmore,30.0,30.0,1,,1
+Sunbury,27.0,27.0,1,,1
+Sunshine West,26.0,26.0,1,,1
+Swan Hill,26.0,26.0,1,,1
+Swifts Creek,29.0,29.0,1,,1
+TARNEIT,29.33,31.0,3,2.89,3
+TAYLORS HILL,26.5,26.5,2,0.71,2
+TOORAK,35.33,35.0,3,0.58,3
+TRARALGON,30.0,30.0,1,,1
+TRUGANINA,33.5,33.5,2,0.71,2
+TYNONG,26.0,26.0,1,,1
+Tallangatta,27.0,27.0,1,,1
+Tarneit,23.0,23.0,1,,1
+Templestowe Lower,28.0,28.0,1,,1
+Thomastown,24.0,24.0,1,,1
+Thornbury,28.5,28.5,2,2.12,2
+Timboon,24.0,24.0,1,,1
+Trafalgar,27.0,27.0,1,,1
+Traralgon,25.0,25.0,1,,1
+Upwey,27.0,27.0,1,,1
+VERMONT SOUTH,31.0,31.0,1,,1
+Vermont,32.0,32.0,1,,1
+Viewbank,31.0,31.0,1,,1
+WANTIRNA SOUTH,33.0,33.5,4,1.41,4
+WATSONIA,30.0,30.0,1,,1
+WENDOUREE,32.0,32.0,1,,1
+WERRIBEE,30.0,30.0,1,,1
+WEST MELBOURNE,30.0,30.0,1,,1
+WODONGA,28.0,28.0,2,0.0,2
+WOODEND,32.0,32.0,1,,1
+Wallan,22.0,22.0,1,,1
+Wangaratta,26.0,26.0,1,,1
+Wantirna,29.0,29.0,1,,1
+Warragul,24.0,24.0,1,,1
+Warrandyte,26.0,26.0,1,,1
+Warrnambool,26.0,26.0,1,,1
+Wedderburn,20.0,20.0,1,,1
+Wendouree,28.0,28.0,1,,1
+Werribee,31.0,31.0,2,4.24,2
+Whittlesea,24.0,24.0,1,,1
+Williamstown,29.5,29.5,2,2.12,2
+Windsor,30.0,30.0,1,,1
+Wollert,26.0,26.0,1,,1
+Wonthaggi,28.0,28.0,1,,1
+Wycheproof,30.0,30.0,1,,1
+Wyndham Vale,24.0,24.0,1,,1
+YARRA JUNCTION,29.0,29.0,1,,1
+YARRAWONGA,27.0,27.0,1,,1
+Yarra Junction,27.0,27.0,1,,1
+Yarram,25.0,25.0,1,,1
+Yarrawonga,28.0,28.0,1,,1
+Yea,25.0,25.0,1,,1
