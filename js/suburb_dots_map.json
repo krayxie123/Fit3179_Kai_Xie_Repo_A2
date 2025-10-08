@@ -1,67 +1,95 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Average VCE Study Scores by Suburb (2024) - Choropleth Map",
-  "width": 1600,
-  "height":1000,
-  "projection": {"type": "mercator"},
-  "layer": [
+  "title": {
+    "text": "Median VCE Study Scores by Locality",
+    "fontSize": 50,
+    "fontWeight": "bold"
+  },
+  "width": 700,
+  "height": 500,
+  "params": [
     {
-      "data": {
-        "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/js/vicsuburbsgood.topojson",
-        "format": {"type": "topojson", "feature": "Vicsubs.topojson"}
-      },
-      "mark": {
-        "type": "geoshape",
-        "fill": "#f5f5f5",
-        "stroke": "#ccc",
-        "strokeWidth": 1
+      "name": "zoom_level",
+      "value": 20000,
+      "bind": {
+        "input": "range",
+        "min": 20000,
+        "max": 50000,
+        "step": 100,
+        "name": "Zoom: "
       }
     },
     {
-      "data": {
-        "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/js/vicsuburbsgood.topojson",
-        "format": {"type": "topojson", "feature": "Vicsubs.topojson"}
-      },
+      "name": "center_to",
+      "value": [145, -37.7],
+      "bind": {
+        "input": "select",
+        "options": [
+          [145, -37],
+          [144.3, -38.1],
+          [144.9, -36.7],
+          [147.1, -38.1]
+        ],
+        "labels": ["Melbourne CBD", "Geelong", "Bendigo", "Sale"],
+        "name": "Map Centre: "
+      }
+    }
+  ],
+  "projection": {
+    "type": "mercator",
+    "center": {"expr": "center_to"},
+    "scale": {"expr": "zoom_level"}
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/js/vicsuburbsgood.topojson",
+    "format": {"type": "topojson", "feature": "Vicsubs.topojson"}
+  },
+  "layer": [
+    {
+      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
+      "encoding": {
+        "tooltip": {
+          "field": "note"
+        }
+      }
+    },
+    {
       "transform": [
         {
           "lookup": "properties.vic_loca_2",
           "from": {
-            "data": {"url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/data/suburb_study_scores_updated.csv"},
-            "key": "suburb",
-            "fields": ["avg_study_score", "school_count"]
+            "data": {
+              "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/data/VCE 2024 Results.csv"
+            },
+            "key": "Locality",
+            "fields": ["Median VCE study score", "School"]
           }
         },
         {
-          "calculate": "datum.avg_study_score != null ? datum.avg_study_score : 10",
-          "as": "study_score_with_offset"
+          "calculate": "datum['Median VCE study score'] != null && datum['Median VCE study score'] != 'I/D' && datum['Median VCE study score'] != '' ? parseFloat(datum['Median VCE study score']) : 0",
+          "as": "study_score"
         }
       ],
-      "mark": {
-        "type": "geoshape",
-        "stroke": "white",
-        "strokeWidth": 0.5
-      },
+      "mark": {"type": "geoshape", "stroke": "white"},
       "encoding": {
         "color": {
-          "field": "study_score_with_offset",
+          "field": "study_score",
           "type": "quantitative",
-          "title": "Average Study Score",
           "scale": {
-            "domain": [0.1, 37],
-            "range": ["#fee5d9", "#a50f15"],
-            "scheme": "reds"
-          },
-          "legend": {
-            "title": "Average Study Score",
-            "orient": "bottom"
+            "domain": [0, 20, 25, 30, 35, 40, 45, 50],
+            "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603"]
           }
         },
         "tooltip": [
-          {"field": "properties.vic_loca_2", "type": "nominal", "title": "Suburb"},
-          {"field": "avg_study_score", "type": "quantitative", "title": "Avg Study Score", "format": ".1f"},
-          {"field": "school_count", "type": "quantitative", "title": "Schools"}
+          {"field": "properties.vic_loca_2", "type": "nominal", "title": "Locality"},
+          {"field": "study_score", "type": "quantitative", "title": "Median Study Score", "format": ".1f"},
+          {"field": "School", "type": "nominal", "title": "School"}
         ]
       }
+    },
+    {
+      "data": {"graticule": {"step": [1, 1]}},
+      "mark": {"type": "geoshape", "stroke": "grey", "strokeWidth": 0.5, "fill": null}
     }
   ]
 }

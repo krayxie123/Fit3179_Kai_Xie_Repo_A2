@@ -1,10 +1,15 @@
 /* Global styles */
 body {
     font-family: Arial, sans-serif;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
     background-color: #f5f5f5;
+    background-image: url('CCNOW-Images-copy-3-850x560.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* Heading styles */
@@ -22,11 +27,15 @@ h3 {
 
 /* Container styles for better layout */
 .container {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     margin-bottom: 30px;
+    backdrop-filter: blur(5px);
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
 }
 
 /* Flex container for charts */
@@ -35,10 +44,44 @@ h3 {
     gap: 20px;
     align-items: flex-start;
     margin-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    flex-wrap: wrap;
 }
 
 /* Image styling */
 img {
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Responsive styling for visualizations */
+#suburb_study_scores_map,
+#vce_scores_map,
+#school_bubble_chart,
+#education_sector_pie_chart,
+#vce_pathways_sankey_new,
+#sankey_example,
+#class_size_timeline,
+#Metro_vs_non_metro_symbol_map,
+#vce_sector_bar_chart,
+#vce_region_bar_chart {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ensure charts don't overflow */
+.vega-embed {
+    max-width: 100% !important;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .chart-container {
+        flex-direction: column;
+    }
+    
+    .container {
+        padding: 15px;
+    }
 }
