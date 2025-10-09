@@ -36,7 +36,7 @@
     }
   ],
   "projection": {
-    "type": "mercator",
+    "type": "equirectangular",
     "center": {"expr": "center_to"},
     "scale": {"expr": "zoom_level"}
   },

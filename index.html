@@ -64,6 +64,11 @@
         <h3>TAFE/VET Enrollment Rates by Metro/Non-Metro Status</h3>
         <div id="tafe_enrollment_metro"></div>
     </div>
+
+    <div class="container">
+        <h3>Earthquake Analysis: Magnitude Distribution and Trends</h3>
+        <div id="earthquake_analysis"></div>
+    </div>
         <script type="text/javascript">
 
         var spec1 = "js/Metro_vs_non_metro_symbol_map.json";
@@ -119,6 +124,11 @@
 
         var spec16 = "js/tafe_enrollment_metro.json";
             vegaEmbed('#tafe_enrollment_metro', spec16).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec17 = "js/earthquake_analysis.json";
+            vegaEmbed('#earthquake_analysis', spec17).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
         </script>
