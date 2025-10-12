@@ -1,0 +1,151 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Median VCE Study Scores by Locality",
+    "fontSize": 50,
+    "fontWeight": "bold"
+  },
+  "width": 700,
+  "height": 500,
+  "params": [
+    {
+      "name": "zoom_level",
+      "value": 20000,
+      "bind": {
+        "input": "range",
+        "min": 20000,
+        "max": 50000,
+        "step": 100,
+        "name": "Zoom: "
+      }
+    },
+    {
+      "name": "center_to",
+      "value": [145, -37.7],
+      "bind": {
+        "input": "select",
+        "options": [
+          [145, -37],
+          [144.3, -38.1],
+          [144.9, -36.7],
+          [147.1, -38.1]
+        ],
+        "labels": ["Melbourne CBD", "Geelong", "Bendigo", "Sale"],
+        "name": "Map Centre: "
+      }
+    },
+    {
+      "name": "score_threshold",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "name": "Study Score Threshold: "
+      }
+    },
+    {
+      "name": "year_filter",
+      "value": 2023,
+      "bind": {
+        "input": "range",
+        "min": 2014,
+        "max": 2024,
+        "step": 1,
+        "name": "Year: "
+      }
+    }
+  ],
+  "projection": {
+    "type": "equirectangular",
+    "center": {"expr": "center_to"},
+    "scale": {"expr": "zoom_level"}
+  },
+  "data": {
+    "url": "js/vicsuburbsgood.topojson",
+    "format": {"type": "topojson", "feature": "Vicsubs.topojson"}
+  },
+  "layer": [
+    {
+      "transform": [
+        {
+          "calculate": "'No schools in ' + datum.properties.vic_loca_2",
+          "as": "note"
+        }
+      ],
+      "mark": {"type": "geoshape", "fill": "#fdbe85", "stroke": "white"},
+      "encoding": {
+        "tooltip": [
+          {"field": "properties.vic_loca_2", "type": "nominal", "title": "Locality"},
+          {"field": "note", "type": "nominal", "title": "Status"}
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/VCE_School_Results.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.year == year_filter"
+        },
+        {
+          "calculate": "datum['median_vce_ss'] != null && datum['median_vce_ss'] != 'I/D' && datum['median_vce_ss'] != '' && datum['median_vce_ss'] != '-' ? parseFloat(datum['median_vce_ss']) : 0",
+          "as": "study_score"
+        },
+        {
+          "aggregate": [
+            {"op": "mean", "field": "study_score", "as": "avg_score"},
+            {"op": "count", "field": "school", "as": "school_count"}
+          ],
+          "groupby": ["locality"]
+        },
+        {
+          "lookup": "locality",
+          "from": {
+            "data": {
+              "url": "js/vicsuburbsgood.topojson",
+              "format": {"type": "topojson", "feature": "Vicsubs.topojson"}
+            },
+            "key": "properties.vic_loca_2"
+          },
+          "as": "geo"
+        },
+        {
+          "calculate": "datum.school_count + ' schools in this suburb'",
+          "as": "school_info"
+        },
+        {
+          "filter": "score_threshold == 0 ? true : datum.avg_score >= score_threshold"
+        }
+      ],
+      "mark": {"type": "geoshape", "stroke": "white"},
+      "encoding": {
+        "shape": {"field": "geo", "type": "geojson"},
+        "color": {
+          "field": "avg_score",
+          "type": "quantitative",
+          "scale": {
+            "domain": [0, 10, 20, 30, 40, 50],
+            "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603"]
+          },
+          "legend": {
+            "title": "Average VCE Study Score",
+            "orient": "bottom",
+            "direction": "horizontal"
+          }
+        },
+        "tooltip": [
+          {"field": "locality", "type": "nominal", "title": "Locality"},
+          {"field": "avg_score", "type": "quantitative", "title": "Average Study Score", "format": ".1f"},
+          {"field": "school_info", "type": "nominal", "title": "Schools"}
+        ]
+      }
+    },
+    {
+      "data": {"graticule": {"step": [1, 1]}},
+      "mark": {"type": "geoshape", "stroke": "grey", "strokeWidth": 0.5, "fill": null}
+    }
+  ]
+}

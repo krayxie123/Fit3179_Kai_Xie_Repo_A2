@@ -11,14 +11,83 @@
     <div class="container">
         <h2>Victorian Schools Data Visualization</h2>
     
+        <h3>VCE School Results with Year Slider (2014-2024)</h3>
+        <div style="display: flex; gap: 30px; align-items: flex-start; width: 100%; box-sizing: border-box;">
+            <div id="vce_working_map" style="flex: 2; min-width: 0;"></div>
+            <div style="flex: 1; padding: 20px; background-color: rgba(255, 255, 255, 0.8); border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <h4 style="color: #333; margin-top: 0;">About VCE Results in Victoria</h4>
+                <p style="color: #555; line-height: 1.6; margin-bottom: 15px;">
+                    <strong>VCE results have been a great big deal in Australia</strong> - Victoria is known as the education state. 
+                    Just how well educated is the entire state? Is there disparity between regions and inequality? Let's investigate.
+                </p>
+                <h5 style="color: #333; margin-bottom: 10px;">Understanding VCE Scores:</h5>
+                <ul style="color: #555; line-height: 1.6; margin: 0; padding-left: 20px;">
+                    <li><strong>30</strong> is the median score for all states for a subject</li>
+                    <li><strong>50</strong> is the maximum mark achievable</li>
+                    <li>Scores above <strong>40</strong> are considered excellent</li>
+                    <li>Median scores vary significantly by school and region</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>Regional VCE Performance Analysis</h3>
+        <p style="text-align: center; color: #666; margin-bottom: 20px; font-style: italic;">
+            Distribution patterns and average scores across Victorian regions reveal significant educational disparities.
+        </p>
+        <div style="display: flex; gap: 20px; align-items: flex-start; width: 100%; box-sizing: border-box;">
+            <div id="vce_scores_density_region" style="flex: 1; min-width: 0;"></div>
+            <div id="vce_region_bar_chart" style="flex: 1; min-width: 0;"></div>
+        </div>
+        <div style="margin-top: 20px; padding: 20px; background-color: rgba(255, 255, 255, 0.8); border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+            <h4 style="color: #333; margin-top: 0;">Regional Performance Insights</h4>
+            <p style="color: #555; line-height: 1.6; margin-bottom: 15px;">
+                <strong>South Eastern Victoria</strong> is well known to have some of the best schools in Victoria and is the most educated region, 
+                consistently excelling in VCE performance. The density plot shows the distribution patterns of scores across regions, 
+                while the bar chart reveals the average performance levels.
+            </p>
+            <p style="color: #555; line-height: 1.6; margin: 0;">
+                The distributions show that larger metropolitan regions tend to have more diverse score ranges, 
+                with both high-performing and struggling schools, while smaller regional areas often show more concentrated 
+                performance patterns. This reflects the complex relationship between geographic location, 
+                socioeconomic factors, and educational outcomes across Victoria.
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
         <h3>Average VCE Study Scores by Suburb</h3>
         <div id="suburb_study_scores_map" style="display: flex; justify-content: center;"></div>
     </div>
 
     <div class="container">
-        <h3>Schools by Location Type</h3>
-        <div class="chart-container">
-            <div id="Metro_vs_non_metro_symbol_map"></div>
+        <h3>Schools by Location Type & Metro vs Non-Metro Performance</h3>
+        <p style="text-align: center; color: #666; margin-bottom: 20px; font-style: italic;">
+            Geographic distribution of schools and performance patterns across metropolitan and regional areas.
+        </p>
+        <div style="display: flex; gap: 20px; align-items: flex-start; width: 100%; box-sizing: border-box;">
+            <div id="Metro_vs_non_metro_symbol_map" style="flex: 1; min-width: 0;"></div>
+            <div id="vce_scores_density_metro" style="flex: 1; min-width: 0;"></div>
+        </div>
+        <div style="margin-top: 20px; padding: 20px; background-color: rgba(255, 255, 255, 0.8); border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+            <h4 style="color: #333; margin-top: 0;">Access to Education: Location and Regionality</h4>
+            <p style="color: #555; line-height: 1.6; margin-bottom: 15px;">
+                <strong>Metropolitan areas have much more resources</strong> compared to regional Victoria. This disparity is clearly reflected 
+                in the educational outcomes and school sector distribution. Metro areas typically have greater access to:
+            </p>
+            <ul style="color: #555; line-height: 1.6; margin-bottom: 15px; text-align: left; display: inline-block;">
+                <li>Diverse school options (Government, Catholic, Independent)</li>
+                <li>Specialized programs and resources</li>
+                <li>Highly qualified teachers and staff</li>
+                <li>Advanced facilities and technology</li>
+                <li>Extracurricular opportunities</li>
+            </ul>
+            <p style="color: #555; line-height: 1.6; margin: 0;">
+                Regional areas often face challenges with limited school choices, fewer resources, and geographic isolation. 
+                The density plots reveal how these resource disparities translate into different performance patterns and 
+                educational opportunities across Victoria's metropolitan and non-metropolitan regions.
+            </p>
         </div>
     </div>
     
@@ -26,12 +95,49 @@
 
     <div class="container">
         <h3>Median VCE Study Scores by School</h3>
-        <div class="chart-container">
-            <div id="vce_scores_map" style="flex: 1;"></div>
-            <div style="display: flex; flex-direction: column; gap: 20px;">
-                <div id="vce_sector_bar_chart"></div>
-                <div id="vce_region_bar_chart"></div>
+        <p style="text-align: center; color: #666; margin-bottom: 20px; font-style: italic;">
+            Comprehensive analysis of VCE performance across schools, sectors, and geographic distribution.
+        </p>
+        <div style="display: flex; gap: 20px; align-items: flex-start; width: 100%; box-sizing: border-box; margin-bottom: 20px;">
+            <div id="vce_scores_map" style="flex: 1; min-width: 0;"></div>
+            <div id="vce_scores_density" style="flex: 1; min-width: 0;"></div>
+        </div>
+        <div style="display: flex; gap: 20px; align-items: flex-start; width: 100%; box-sizing: border-box;">
+            <div id="vce_sector_bar_chart" style="flex: 1; min-width: 0;"></div>
+            <div style="flex: 1; min-width: 0; display: flex; align-items: center; justify-content: center; background-color: rgba(240, 240, 240, 0.5); border-radius: 8px; padding: 20px;">
+                <p style="color: #666; text-align: center; margin: 0; font-style: italic;">
+                    Additional analysis visualizations can be added here to complement the sector bar chart.
+                </p>
             </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>Schools by Education Sector & VCE Performance Analysis</h3>
+        <p style="text-align: center; color: #666; margin-bottom: 20px; font-style: italic;">
+            Geographic distribution of schools by education sector and their relationship to VCE performance and tertiary applications.
+        </p>
+        <div style="display: flex; gap: 20px; align-items: flex-start; width: 100%; box-sizing: border-box; margin-bottom: 20px;">
+            <div id="schools_by_sector_map" style="flex: 1; min-width: 0;"></div>
+            <div id="distance_vs_performance" style="flex: 1; min-width: 0;"></div>
+        </div>
+        <div style="display: flex; gap: 20px; align-items: flex-start; width: 100%; box-sizing: border-box;">
+            <div id="school_bubble_chart" style="flex: 2; min-width: 0;"></div>
+            <div id="education_sector_pie_chart" style="flex: 1; min-width: 0;"></div>
+        </div>
+        <div style="margin-top: 20px; padding: 20px; background-color: rgba(255, 255, 255, 0.8); border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+            <h4 style="color: #333; margin-top: 0;">Education Sector Distribution & Performance</h4>
+            <p style="color: #555; line-height: 1.6; margin-bottom: 15px;">
+                <strong>Government schools</strong> (blue) are the most numerous and widely distributed across Victoria, 
+                while <strong>Catholic schools</strong> (gold) and <strong>Independent schools</strong> (green) tend to be 
+                more concentrated in metropolitan areas. The bubble chart shows the relationship between VCE performance 
+                and tertiary application rates, with bubble size representing the number of VCE students.
+            </p>
+            <p style="color: #555; line-height: 1.6; margin: 0;">
+                The pie chart illustrates the overall distribution of school sectors, while the scatter plot reveals 
+                how distance from Melbourne CBD affects performance. Independent and Catholic schools often show higher 
+                VCE scores and tertiary application rates, reflecting different educational approaches and student demographics.
+            </p>
         </div>
     </div>
 
@@ -40,15 +146,35 @@
         <div id="class_size_timeline"></div>
     </div>
 
+    <div class="container">
+        <h3>School Types Over Time (2014-2024)</h3>
+        <div id="school_types_timeline"></div>
+    </div>
+
+    <div class="container">
+        <h3>Average Median Study Scores by School Type Over Time (2014-2024)</h3>
+        <div id="vce_students_timeline"></div>
+    </div>
+
+    <div class="container">
+        <h3>Median Study Scores by School Type and Year (2014-2024)</h3>
+        <div id="study_scores_bar_chart"></div>
+    </div>
+
+    <div class="container">
+        <h3>Parallel Coordinates: VCE Performance Metrics by School (2014-2024)</h3>
+        <div id="parallel_coordinates"></div>
+    </div>
+
 
 
     <div class="container">
-        <h3>Schools: VCE Study Scores vs University Enrollment</h3>
-        <div style="display: flex; gap: 20px;">
-            <div id="school_bubble_chart" style="flex: 2;"></div>
-            <div id="education_sector_pie_chart" style="flex: 1;"></div>
-        </div>
+        <h3>Top 10 Schools by Percentage of Students with 40+ Study Scores for Each Year (2014-2024)</h3>
+        <div id="top_schools_tertiary"></div>
     </div>
+
+
+
 
     <div class="container">
         <h3>VCE Student Pathways: From Year 12 to Destinations</h3>
@@ -131,6 +257,62 @@
             vegaEmbed('#earthquake_analysis', spec17).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
+
+        var spec18 = "js/vce_simple_working.json";
+            vegaEmbed('#vce_working_map', spec18).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec19 = "js/school_types_timeline.json";
+            vegaEmbed('#school_types_timeline', spec19).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec20 = "js/vce_students_timeline.json";
+            vegaEmbed('#vce_students_timeline', spec20).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec21 = "js/top_schools_tertiary.json";
+            vegaEmbed('#top_schools_tertiary', spec21).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec22 = "js/study_scores_bar_chart_fixed.json";
+            vegaEmbed('#study_scores_bar_chart', spec22).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec23 = "js/parallel_coordinates.json";
+            vegaEmbed('#parallel_coordinates', spec23).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec24 = "js/complete_distance_scatter.json";
+            vegaEmbed('#distance_vs_performance', spec24).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec25 = "js/vce_scores_density.json";
+            vegaEmbed('#vce_scores_density', spec25).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec26 = "js/vce_scores_density_metro.json";
+            vegaEmbed('#vce_scores_density_metro', spec26).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec27 = "js/vce_scores_density_region.json";
+            vegaEmbed('#vce_scores_density_region', spec27).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+        var spec28 = "js/schools_by_sector_choropleth.json";
+            vegaEmbed('#schools_by_sector_map', spec28).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
         </script>
 
 </body>

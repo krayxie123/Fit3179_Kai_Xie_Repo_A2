@@ -1,0 +1,57 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": "Distribution of VCE Median Scores by Region",
+  "width": 700,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/VCE_School_Results.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.median_vce_ss != null && datum.median_vce_ss != 'I/D' && datum.median_vce_ss != '' && datum.median_vce_ss != '-'"
+    },
+    {
+      "calculate": "parseFloat(datum.median_vce_ss)",
+      "as": "study_score"
+    },
+    {
+      "lookup": "school",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/dv402-SchoolLocations2025.csv"
+        },
+        "key": "School_Name",
+        "fields": ["Region"]
+      }
+    },
+    {
+      "filter": "datum.Region != null"
+    },
+    {
+      "density": "study_score",
+      "bandwidth": 0.5,
+      "groupby": ["Region"]
+    }
+  ],
+  "mark": "area",
+  "encoding": {
+    "x": {
+      "field": "value",
+      "title": "VCE Median Study Score",
+      "type": "quantitative"
+    },
+    "y": {
+      "field": "density",
+      "title": "Density",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "Region",
+      "type": "nominal",
+      "title": "Region"
+    },
+    "opacity": {
+      "value": 0.6
+    }
+  }
+}

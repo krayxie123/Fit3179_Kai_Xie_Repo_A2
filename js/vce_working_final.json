@@ -9,6 +9,17 @@
   "height": 500,
   "params": [
     {
+      "name": "year_filter",
+      "value": 2024,
+      "bind": {
+        "input": "range",
+        "min": 2014,
+        "max": 2024,
+        "step": 1,
+        "name": "Year: "
+      }
+    },
+    {
       "name": "zoom_level",
       "value": 20000,
       "bind": {
@@ -41,7 +52,7 @@
     "scale": {"expr": "zoom_level"}
   },
   "data": {
-    "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/js/vicsuburbsgood.topojson",
+    "url": "js/vicsuburbsgood.topojson",
     "format": {"type": "topojson", "feature": "Vicsubs.topojson"}
   },
   "layer": [
@@ -59,14 +70,18 @@
           "lookup": "properties.vic_loca_2",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/data/VCE 2024 Results.csv"
+              "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/VCE_School_Results.csv",
+              "format": {"type": "csv", "parse": {"year": "number", "median_vce_ss": "string"}}
             },
-            "key": "Locality",
-            "fields": ["Median VCE study score", "School"]
+            "key": "locality",
+            "fields": ["median_vce_ss", "school", "year"]
           }
         },
         {
-          "calculate": "datum['Median VCE study score'] != null && datum['Median VCE study score'] != 'I/D' && datum['Median VCE study score'] != '' ? parseFloat(datum['Median VCE study score']) : 0",
+          "filter": "datum.year == year_filter"
+        },
+        {
+          "calculate": "datum.median_vce_ss != null && datum.median_vce_ss != '-' && datum.median_vce_ss != '' && datum.median_vce_ss != 'I/D' ? parseFloat(datum.median_vce_ss) : 0",
           "as": "study_score"
         }
       ],
@@ -76,14 +91,20 @@
           "field": "study_score",
           "type": "quantitative",
           "scale": {
-            "domain": [0, 20, 25, 30, 35, 40, 45, 50],
+            "domain": [0, 10, 20, 30, 40, 50],
             "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603"]
+          },
+          "legend": {
+            "title": "Median VCE Study Score",
+            "orient": "bottom",
+            "direction": "horizontal"
           }
         },
         "tooltip": [
           {"field": "properties.vic_loca_2", "type": "nominal", "title": "Locality"},
           {"field": "study_score", "type": "quantitative", "title": "Median Study Score", "format": ".1f"},
-          {"field": "School", "type": "nominal", "title": "School"}
+          {"field": "school", "type": "nominal", "title": "School"},
+          {"field": "year", "type": "ordinal", "title": "Year"}
         ]
       }
     },

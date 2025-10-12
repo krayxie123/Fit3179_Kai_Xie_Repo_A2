@@ -1,0 +1,61 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": "Distribution of VCE Median Scores by Education Sector",
+  "width": 600,
+  "height": 300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/VCE_School_Results.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.median_vce_ss != null && datum.median_vce_ss != 'I/D' && datum.median_vce_ss != '' && datum.median_vce_ss != '-'"
+    },
+    {
+      "calculate": "parseFloat(datum.median_vce_ss)",
+      "as": "study_score"
+    },
+    {
+      "lookup": "school",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/dv402-SchoolLocations2025.csv"
+        },
+        "key": "School_Name",
+        "fields": ["Education_Sector"]
+      }
+    },
+    {
+      "filter": "datum.Education_Sector != null"
+    },
+    {
+      "density": "study_score",
+      "bandwidth": 0.5,
+      "groupby": ["Education_Sector"]
+    }
+  ],
+  "mark": "area",
+  "encoding": {
+    "x": {
+      "field": "value",
+      "title": "VCE Median Study Score",
+      "type": "quantitative"
+    },
+    "y": {
+      "field": "density",
+      "title": "Density",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "Education_Sector",
+      "type": "nominal",
+      "title": "Education Sector",
+      "scale": {
+        "domain": ["Government", "Catholic", "Independent"],
+        "range": ["#1f77b4", "#ffd700", "#2ca02c"]
+      }
+    },
+    "opacity": {
+      "value": 0.7
+    }
+  }
+}

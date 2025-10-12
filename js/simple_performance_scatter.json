@@ -1,0 +1,77 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "VCE Performance by School (2014-2024)",
+  "width": 800,
+  "height": 500,
+  "data": {
+    "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/VCE_School_Results.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.median_vce_ss != null && datum.median_vce_ss != '' && datum.median_vce_ss != '-' && datum.median_vce_ss != 'I/D'"
+    },
+    {
+      "calculate": "parseFloat(datum.median_vce_ss)",
+      "as": "median_score"
+    },
+    {
+      "filter": "datum.median_score > 0 && !isNaN(datum.median_score)"
+    },
+    {
+      "aggregate": [
+        {"op": "mean", "field": "median_score", "as": "avg_median_score"},
+        {"op": "count", "field": "school", "as": "data_points"}
+      ],
+      "groupby": ["school"]
+    },
+    {
+      "filter": "datum.data_points >= 3"
+    },
+    {
+      "window": [
+        {"op": "rank", "as": "rank"}
+      ],
+      "sort": [{"field": "avg_median_score", "order": "descending"}]
+    },
+    {
+      "filter": "datum.rank <= 50"
+    }
+  ],
+  "mark": {
+    "type": "circle",
+    "size": 100,
+    "opacity": 0.7
+  },
+  "encoding": {
+    "x": {
+      "field": "school",
+      "type": "nominal",
+      "title": "School",
+      "axis": {"labelAngle": -45}
+    },
+    "y": {
+      "field": "avg_median_score",
+      "type": "quantitative",
+      "title": "Average Median VCE Score",
+      "scale": {"zero": false}
+    },
+    "color": {
+      "field": "data_points",
+      "type": "quantitative",
+      "title": "Years of Data",
+      "scale": {"scheme": "viridis"}
+    },
+    "size": {
+      "field": "data_points",
+      "type": "quantitative",
+      "title": "Years of Data",
+      "scale": {"range": [50, 300]}
+    },
+    "tooltip": [
+      {"field": "school", "type": "nominal", "title": "School"},
+      {"field": "avg_median_score", "type": "quantitative", "title": "Average Median Score", "format": ".1f"},
+      {"field": "data_points", "type": "quantitative", "title": "Years of Data"},
+      {"field": "rank", "type": "quantitative", "title": "Rank"}
+    ]
+  }
+}

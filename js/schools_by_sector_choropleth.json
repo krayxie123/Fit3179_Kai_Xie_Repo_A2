@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Schools by Education Sector Across Victoria",
+  "width": 700,
+  "height": 500,
+  "data": {
+    "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/dv402-SchoolLocations2025.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.Education_Sector != null && datum.X != null && datum.Y != null"
+    }
+  ],
+  "mark": {
+    "type": "circle",
+    "size": 50,
+    "opacity": 0.7
+  },
+  "encoding": {
+    "longitude": {
+      "field": "X",
+      "type": "quantitative"
+    },
+    "latitude": {
+      "field": "Y", 
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "Education_Sector",
+      "type": "nominal",
+      "title": "Education Sector",
+      "scale": {
+        "domain": ["Government", "Catholic", "Independent"],
+        "range": ["#1f77b4", "#ffd700", "#2ca02c"]
+      }
+    },
+    "tooltip": [
+      {"field": "School_Name", "type": "nominal", "title": "School"},
+      {"field": "Education_Sector", "type": "nominal", "title": "Education Sector"},
+      {"field": "Address_Town", "type": "nominal", "title": "Location"}
+    ]
+  }
+}
