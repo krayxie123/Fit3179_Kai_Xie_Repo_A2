@@ -1,0 +1,178 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "VCE School Results Heat Map of Victoria (2021-2024)",
+  "params": [
+    {
+      "name": "year",
+      "value": 2024,
+      "bind": {
+        "input": "range",
+        "min": 2021,
+        "max": 2024,
+        "step": 1,
+        "name": "Year: "
+      }
+    },
+    {
+      "name": "score_range",
+      "value": [15, 45],
+      "bind": {
+        "input": "range",
+        "min": 15,
+        "max": 45,
+        "step": 1,
+        "name": "Score Range: "
+      }
+    }
+  ],
+  "vconcat": [
+    {
+      "title": "VCE School Performance by Location",
+      "data": {
+        "url": "data/VCE_School_Results.csv",
+        "format": {"type": "csv", "parse": {"year": "number", "median_vce_ss": "number"}}
+      },
+      "transform": [
+        {
+          "filter": "datum.year == year"
+        },
+        {
+          "filter": "datum.median_vce_ss != null && datum.median_vce_ss != '-'"
+        },
+        {
+          "calculate": "parseFloat(datum.median_vce_ss)",
+          "as": "median_score"
+        },
+        {
+          "filter": "datum.median_score > 0"
+        },
+        {
+          "lookup": "school",
+          "from": {
+            "data": {
+              "url": "data/dv402-SchoolLocations2025.csv",
+              "format": {"type": "csv", "parse": {"X": "number", "Y": "number"}}
+            },
+            "key": "School_Name",
+            "fields": ["X", "Y", "LGA_Name", "Region"]
+          }
+        },
+        {
+          "filter": "datum.X != null && datum.Y != null"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "circle",
+            "size": 80,
+            "opacity": 0.8,
+            "stroke": "white",
+            "strokeWidth": 1.5
+          },
+          "encoding": {
+            "longitude": {
+              "field": "X",
+              "type": "quantitative",
+              "scale": {"domain": [140.5, 150.5]}
+            },
+            "latitude": {
+              "field": "Y", 
+              "type": "quantitative",
+              "scale": {"domain": [-39.5, -33.5]}
+            },
+            "color": {
+              "field": "median_score",
+              "type": "quantitative",
+              "scale": {
+                "domain": {"param": "score_range"},
+                "range": ["#2166ac", "#4393c3", "#92c5de", "#d1e5f0", "#f7f7f7", "#fddbc7", "#f4a582", "#d6604d", "#b2182b"]
+              },
+              "legend": {
+                "title": "Median VCE Study Score",
+                "orient": "right"
+              }
+            },
+            "size": {
+              "field": "num_vce_students_enrolled",
+              "type": "quantitative",
+              "scale": {"range": [50, 200]},
+              "legend": {
+                "title": "VCE Students",
+                "orient": "right"
+              }
+            },
+            "tooltip": [
+              {"field": "school", "type": "nominal", "title": "School"},
+              {"field": "locality", "type": "nominal", "title": "Suburb"},
+              {"field": "LGA_Name", "type": "nominal", "title": "LGA"},
+              {"field": "Region", "type": "nominal", "title": "Region"},
+              {"field": "median_score", "type": "quantitative", "title": "Median VCE Score", "format": ".1f"},
+              {"field": "num_vce_students_enrolled", "type": "quantitative", "title": "VCE Students"},
+              {"field": "percent_ss_40plus", "type": "quantitative", "title": "% Score 40+", "format": ".1f"},
+              {"field": "year", "type": "ordinal", "title": "Year"}
+            ]
+          }
+        }
+      ],
+      "projection": {
+        "type": "mercator",
+        "scale": 1200,
+        "translate": [300, 200]
+      },
+      "width": 600,
+      "height": 500,
+      "config": {
+        "view": {
+          "stroke": "transparent"
+        },
+        "axis": {
+          "grid": false,
+          "tickSize": 0,
+          "domain": false,
+          "labels": false
+        }
+      }
+    },
+    {
+      "title": "Score Distribution by Year",
+      "data": {
+        "url": "data/VCE_School_Results.csv",
+        "format": {"type": "csv", "parse": {"year": "number", "median_vce_ss": "number"}}
+      },
+      "transform": [
+        {
+          "filter": "datum.median_vce_ss != null && datum.median_vce_ss != '-'"
+        },
+        {
+          "calculate": "parseFloat(datum.median_vce_ss)",
+          "as": "median_score"
+        },
+        {
+          "filter": "datum.median_score > 0"
+        }
+      ],
+      "mark": "boxplot",
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "title": "Year"
+        },
+        "y": {
+          "field": "median_score",
+          "type": "quantitative",
+          "title": "Median VCE Study Score",
+          "scale": {"domain": [15, 45]}
+        },
+        "color": {
+          "field": "year",
+          "type": "ordinal",
+          "scale": {"range": ["#2166ac", "#4393c3", "#92c5de", "#d6604d"]}
+        }
+      },
+      "width": 600,
+      "height": 150
+    }
+  ]
+}
