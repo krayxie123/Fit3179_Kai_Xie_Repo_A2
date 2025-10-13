@@ -1,0 +1,74 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Regional Tertiary Application Trends (2014-2024)",
+  "width": 400,
+  "height": 50,
+  "data": {
+    "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/VCE_School_Results.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.percent_vce_studs_apply_tert != null && datum.percent_vce_studs_apply_tert != '' && datum.percent_vce_studs_apply_tert != '-'"
+    },
+    {
+      "calculate": "parseFloat(datum.percent_vce_studs_apply_tert)",
+      "as": "tertiary_percentage"
+    },
+    {
+      "filter": "!isNaN(datum.tertiary_percentage) && datum.tertiary_percentage >= 0"
+    },
+    {
+      "lookup": "school",
+      "from": {
+        "data": {"url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/dv402-SchoolLocations2025.csv"},
+        "key": "School_Name",
+        "fields": ["Region"]
+      }
+    },
+    {
+      "filter": "datum.Region != null"
+    },
+    {
+      "aggregate": [
+        {"op": "mean", "field": "tertiary_percentage", "as": "avg_tertiary_percentage"},
+        {"op": "count", "as": "school_count"}
+      ],
+      "groupby": ["year", "Region"]
+    },
+    {
+      "filter": "datum.school_count >= 3"
+    }
+  ],
+  "mark": "area",
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "temporal",
+      "title": "Year",
+      "axis": {"grid": false}
+    },
+    "y": {
+      "field": "avg_tertiary_percentage",
+      "type": "quantitative",
+      "title": "Average Tertiary Application %",
+      "axis": {"grid": false},
+      "scale": {"domain": [0, 100]}
+    },
+    "color": {
+      "field": "Region",
+      "type": "nominal",
+      "legend": null
+    },
+    "row": {
+      "field": "Region",
+      "type": "nominal",
+      "title": "Region"
+    },
+    "tooltip": [
+      {"field": "year", "type": "temporal", "title": "Year"},
+      {"field": "Region", "type": "nominal", "title": "Region"},
+      {"field": "avg_tertiary_percentage", "type": "quantitative", "title": "Average Tertiary Application %", "format": ".1f"},
+      {"field": "school_count", "type": "quantitative", "title": "Number of Schools"}
+    ]
+  }
+}

@@ -20,7 +20,14 @@
       "encoding": {
         "longitude": {"field": "X", "type": "quantitative"},
         "latitude": {"field": "Y", "type": "quantitative"},
-        "color": {"field": "LGA_TYPE", "type": "nominal"},
+        "color": {
+          "field": "LGA_TYPE", 
+          "type": "nominal",
+          "scale": {
+            "domain": ["Metro", "Non Metro"],
+            "range": ["#ff7f0e", "#2ca02c"]
+          }
+        },
         "tooltip": [
           {"field": "School_Name", "type": "nominal", "title": "School"},
           {"field": "Address_Town", "type": "nominal", "title": "Town"}

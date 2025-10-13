@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Distribution of Schools by Education Sector",
   "width": 400,
-  "height": 400,
+  "height": 315,
   "data": {
     "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/data/dv402-SchoolLocations2025.csv"
   },

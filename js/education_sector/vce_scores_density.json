@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": "Distribution of VCE Median Scores: Metro vs Non-Metro",
-  "width": 600,
+  "title": "Distribution of VCE Median Scores by Education Sector",
+  "width": 400,
   "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/VCE_School_Results.csv"
@@ -21,16 +21,16 @@
           "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/dv402-SchoolLocations2025.csv"
         },
         "key": "School_Name",
-        "fields": ["LGA_TYPE"]
+        "fields": ["Education_Sector"]
       }
     },
     {
-      "filter": "datum.LGA_TYPE != null"
+      "filter": "datum.Education_Sector != null"
     },
     {
       "density": "study_score",
       "bandwidth": 0.5,
-      "groupby": ["LGA_TYPE"]
+      "groupby": ["Education_Sector"]
     }
   ],
   "mark": "area",
@@ -46,12 +46,12 @@
       "type": "quantitative"
     },
     "color": {
-      "field": "LGA_TYPE",
+      "field": "Education_Sector",
       "type": "nominal",
-      "title": "Area Type",
+      "title": "Education Sector",
       "scale": {
-        "domain": ["Metro", "Non Metro"],
-        "range": ["#ff7f0e", "#2ca02c"]
+        "domain": ["Government", "Catholic", "Independent"],
+        "range": ["#1f77b4", "#ffd700", "#2ca02c"]
       }
     },
     "opacity": {

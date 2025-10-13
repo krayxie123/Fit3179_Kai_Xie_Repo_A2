@@ -74,7 +74,7 @@
           "as": "note"
         }
       ],
-      "mark": {"type": "geoshape", "fill": "#fdbe85", "stroke": "white"},
+      "mark": {"type": "geoshape", "fill": "#e8f5e8", "stroke": "white"},
       "encoding": {
         "tooltip": [
           {"field": "properties.vic_loca_2", "type": "nominal", "title": "Locality"},
@@ -127,8 +127,8 @@
           "field": "avg_score",
           "type": "quantitative",
           "scale": {
-            "domain": [0, 10, 20, 30, 40, 50],
-            "range": ["#fdbe85", "#fd8d3c", "#e6550d", "#a63603"]
+            "domain": [0, 5, 10, 15, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50],
+            "range": ["#e8f5e8", "#d4f4d4", "#b8e6b8", "#9cd89c", "#80ca80", "#64bc64", "#48ae48", "#2ca02c", "#10a010", "#0d8f0d", "#0a7e0a", "#076d07", "#045c04", "#014b01", "#003a00", "#002900", "#001800", "#000700", "#000000", "#000000"]
           },
           "legend": {
             "title": "Average VCE Study Score",

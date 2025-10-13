@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Top Schools by Location Type: Percentage of Students with 40+ Study Scores (2014-2024)",
+  "width": 400,
+  "height": 520,
+  "data": {
+    "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/VCE_School_Results.csv",
+    "format": {
+      "parse": {
+        "year": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.percent_ss_40plus != null && datum.percent_ss_40plus != '' && datum.percent_ss_40plus != '-'"
+    },
+    {
+      "calculate": "parseFloat(datum.percent_ss_40plus)",
+      "as": "percent_40plus"
+    },
+    {
+      "filter": "!isNaN(datum.percent_40plus) && datum.percent_40plus >= 0"
+    },
+    {
+      "lookup": "school",
+      "from": {
+        "data": {"url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/dv402-SchoolLocations2025.csv"},
+        "key": "School_Name",
+        "fields": ["LGA_TYPE"]
+      }
+    },
+    {
+      "filter": "datum.LGA_TYPE != null"
+    },
+    {
+      "window": [
+        {"op": "rank", "as": "rank"}
+      ],
+      "groupby": ["year", "LGA_TYPE"],
+      "sort": [{"field": "percent_40plus", "order": "descending"}]
+    },
+    {
+      "filter": "datum.rank <= 5"
+    },
+    {
+      "aggregate": [
+        {"op": "mean", "field": "percent_40plus", "as": "avg_percent_40plus"},
+        {"op": "count", "as": "school_count"}
+      ],
+      "groupby": ["year", "LGA_TYPE"]
+    }
+  ],
+  "mark": {
+    "type": "area",
+    "point": true,
+    "strokeWidth": 2,
+    "opacity": 0.6
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {"labelAngle": 45, "format": "d"}
+    },
+    "y": {
+      "field": "avg_percent_40plus",
+      "type": "quantitative",
+      "title": "Average % Students with 40+ Study Scores",
+      "scale": {"domain": [0, 100]}
+    },
+    "color": {
+      "field": "LGA_TYPE",
+      "type": "nominal",
+      "title": "Location Type",
+      "scale": {
+        "domain": ["Metro", "Non Metro"],
+        "range": ["#ff7f0e", "#2ca02c"]
+      }
+    },
+    "tooltip": [
+      {"field": "year", "type": "temporal", "title": "Year"},
+      {"field": "LGA_TYPE", "type": "nominal", "title": "Location Type"},
+      {"field": "avg_percent_40plus", "type": "quantitative", "title": "Average % 40+ Scores", "format": ".1f"},
+      {"field": "school_count", "type": "quantitative", "title": "Number of Top Schools"}
+    ]
+  }
+}

@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": "Distribution of VCE Median Scores by Region",
-  "width": 700,
-  "height": 400,
+  "title": "Distribution of VCE Median Scores by Region (Histograms)",
+  "width": 220,
+  "height": 120,
   "data": {
     "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/VCE_School_Results.csv"
   },
@@ -26,32 +26,47 @@
     },
     {
       "filter": "datum.Region != null"
-    },
-    {
-      "density": "study_score",
-      "bandwidth": 0.5,
-      "groupby": ["Region"]
     }
   ],
-  "mark": "area",
+  "mark": "bar",
   "encoding": {
     "x": {
-      "field": "value",
+      "field": "study_score",
       "title": "VCE Median Study Score",
-      "type": "quantitative"
+      "type": "quantitative",
+      "bin": {"maxbins": 20},
+      "scale": {"domain": [15, 40]}
     },
     "y": {
-      "field": "density",
-      "title": "Density",
+      "aggregate": "count",
+      "title": "Number of Schools",
       "type": "quantitative"
     },
     "color": {
       "field": "Region",
       "type": "nominal",
-      "title": "Region"
+      "title": "Region",
+      "legend": {
+        "orient": "bottom",
+        "direction": "horizontal"
+      }
     },
-    "opacity": {
-      "value": 0.6
+    "facet": {
+      "field": "Region",
+      "type": "nominal",
+      "columns": 4,
+      "header": null
+    },
+    "tooltip": [
+      {"field": "Region", "type": "nominal", "title": "Region"},
+      {"field": "study_score", "type": "quantitative", "title": "VCE Score Range"},
+      {"aggregate": "count", "type": "quantitative", "title": "Number of Schools"}
+    ]
+  },
+  "resolve": {
+    "scale": {
+      "x": "independent",
+      "y": "independent"
     }
   }
 }

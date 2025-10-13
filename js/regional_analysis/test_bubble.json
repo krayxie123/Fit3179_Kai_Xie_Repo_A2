@@ -1,0 +1,112 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Regional VCE Performance: 40+ Study Scores vs University Admission",
+  "width": 850,
+  "height": 300,
+  "params": [
+    {
+      "name": "year_filter",
+      "value": 2024,
+      "bind": {
+        "input": "range",
+        "min": 2014,
+        "max": 2024,
+        "step": 1,
+        "name": "Year: "
+      }
+    }
+  ],
+  "data": {
+    "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/VCE_School_Results.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.year == year_filter"
+    },
+    {
+      "filter": "datum.median_vce_ss != null && datum.median_vce_ss != '' && datum.median_vce_ss != '-' && datum.median_vce_ss != 'I/D'"
+    },
+    {
+      "filter": "datum.percent_ss_40plus != null && datum.percent_ss_40plus != '' && datum.percent_ss_40plus != '-'"
+    },
+    {
+      "filter": "datum.percent_vce_studs_apply_tert != null && datum.percent_vce_studs_apply_tert != '' && datum.percent_vce_studs_apply_tert != '-'"
+    },
+    {
+      "calculate": "parseFloat(datum.median_vce_ss)",
+      "as": "median_score"
+    },
+    {
+      "calculate": "parseFloat(datum.percent_ss_40plus)",
+      "as": "percent_40plus"
+    },
+    {
+      "calculate": "parseFloat(datum.percent_vce_studs_apply_tert)",
+      "as": "percent_tertiary"
+    },
+    {
+      "filter": "!isNaN(datum.median_score) && !isNaN(datum.percent_40plus) && !isNaN(datum.percent_tertiary) && datum.median_score > 0 && datum.percent_40plus >= 0 && datum.percent_tertiary >= 0"
+    },
+    {
+      "lookup": "school",
+      "from": {
+        "data": {"url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/dv402-SchoolLocations2025.csv"},
+        "key": "School_Name",
+        "fields": ["Region"]
+      }
+    },
+    {
+      "filter": "datum.Region != null"
+    }
+  ],
+  "mark": {
+    "type": "circle",
+    "opacity": 0.8,
+    "stroke": "black",
+    "strokeWidth": 1
+  },
+  "encoding": {
+    "x": {
+      "field": "percent_tertiary",
+      "type": "quantitative",
+      "title": "University Admission (%)",
+      "axis": {"grid": false}
+    },
+    "y": {
+      "field": "Region",
+      "type": "nominal",
+      "title": "Region"
+    },
+    "size": {
+      "field": "percent_40plus",
+      "type": "quantitative",
+      "title": "40+ Study Scores (%)",
+      "scale": {"range": [100, 600]},
+      "legend": {
+        "values": [10, 20, 30, 40, 50],
+        "clipHeight": 30,
+        "orient": "bottom",
+        "direction": "horizontal"
+      }
+    },
+    "color": {
+      "field": "median_score",
+      "type": "quantitative",
+      "title": "Median VCE Score",
+      "scale": {
+        "domain": [15, 45],
+        "range": ["#FFAEBC", "#A0E7E5", "#B4F8C8", "#FBE7C6"]
+      },
+      "legend": {
+        "orient": "bottom",
+        "direction": "horizontal"
+      }
+    },
+    "tooltip": [
+      {"field": "school", "type": "nominal", "title": "School"},
+      {"field": "Region", "type": "nominal", "title": "Region"},
+      {"field": "percent_40plus", "type": "quantitative", "title": "% 40+ Scores"},
+      {"field": "percent_tertiary", "type": "quantitative", "title": "% University"}
+    ]
+  }
+}
