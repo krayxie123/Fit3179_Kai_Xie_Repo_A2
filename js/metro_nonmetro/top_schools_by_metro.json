@@ -76,7 +76,7 @@
       "title": "Location Type",
       "scale": {
         "domain": ["Metro", "Non Metro"],
-        "range": ["#ff7f0e", "#2ca02c"]
+        "range": ["#F7AF9D", "#8FCB9B"]
       }
     },
     "tooltip": [

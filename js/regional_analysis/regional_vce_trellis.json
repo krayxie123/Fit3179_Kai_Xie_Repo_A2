@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Regional Tertiary Application Trends (2014-2024)",
-  "width": 400,
+  "width": 900,
   "height": 50,
   "data": {
     "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/VCE_School_Results.csv"
@@ -52,7 +52,7 @@
       "type": "quantitative",
       "title": "Average Tertiary Application %",
       "axis": {"grid": false},
-      "scale": {"domain": [0, 100]}
+      "scale": {"domain": [0, 70]}
     },
     "color": {
       "field": "Region",

@@ -90,13 +90,9 @@
       }
     },
     "color": {
-      "field": "median_score",
-      "type": "quantitative",
-      "title": "Median VCE Score",
-      "scale": {
-        "domain": [15, 45],
-        "range": ["#FFAEBC", "#A0E7E5", "#B4F8C8", "#FBE7C6"]
-      },
+      "field": "Region",
+      "type": "nominal",
+      "title": "Region",
       "legend": {
         "orient": "bottom",
         "direction": "horizontal"

@@ -78,7 +78,13 @@
       "title": "Education Sector",
       "scale": {
         "domain": ["Government", "Catholic", "Independent"],
-        "range": ["#1f77b4", "#ffd700", "#2ca02c"]
+        "range": ["#ed7b84", "#7eb77f", "#84c0c6"]
+      },
+      "legend": {
+        "orient": "top",
+        "direction": "horizontal",
+        "labelFontSize": 20,
+        "titleFontSize": 16
       }
     },
     "tooltip": [
