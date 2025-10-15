@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Schools: VCE Study Scores vs Tertiary Applications (Basic)",
+  "title": "Schools: VCE Study Scores vs Tertiary Applications",
   "width": 1000,
   "height": 500,
   "data": {
