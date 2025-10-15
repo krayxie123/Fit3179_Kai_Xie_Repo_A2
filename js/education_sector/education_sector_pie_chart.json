@@ -26,6 +26,7 @@
     "stroke": "white",
     "strokeWidth": 2
   },
+  "background": "transparent",
   "encoding": {
     "theta": {
       "field": "count",
@@ -37,7 +38,7 @@
       "title": "Education Sector",
       "scale": {
         "domain": ["Government", "Catholic", "Independent"],
-        "range": ["#ed7b84", "#7eb77f", "#84c0c6"]
+        "range": ["#000000", "#FF8C00", "#FFD700"]
       },
       "legend": null
     },

@@ -57,6 +57,7 @@
     "strokeWidth": 2,
     "opacity": 0.6
   },
+  "background": "transparent",
   "encoding": {
     "x": {
       "field": "year",

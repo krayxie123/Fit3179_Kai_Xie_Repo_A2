@@ -29,6 +29,7 @@
     }
   ],
   "mark": "bar",
+  "background": "transparent",
   "encoding": {
     "x": {
       "field": "study_score",
@@ -46,10 +47,7 @@
       "field": "Region",
       "type": "nominal",
       "title": "Region",
-      "legend": {
-        "orient": "bottom",
-        "direction": "horizontal"
-      }
+      "legend": null
     },
     "facet": {
       "field": "Region",

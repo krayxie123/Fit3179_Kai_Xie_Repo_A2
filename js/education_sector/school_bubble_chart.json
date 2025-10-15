@@ -56,6 +56,7 @@
     "stroke": "white",
     "strokeWidth": 1
   },
+  "background": "transparent",
   "encoding": {
     "x": {
       "field": "median_vce_ss",
@@ -78,7 +79,7 @@
       "title": "Education Sector",
       "scale": {
         "domain": ["Government", "Catholic", "Independent"],
-        "range": ["#ed7b84", "#7eb77f", "#84c0c6"]
+        "range": ["#000000", "#FF8C00", "#FFD700"]
       },
       "legend": {
         "orient": "top",

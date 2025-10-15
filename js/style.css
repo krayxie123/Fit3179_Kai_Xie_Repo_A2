@@ -15,6 +15,9 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #fff1e5;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 /* Main title styles */
@@ -29,11 +32,11 @@ body {
 
 /* Description styles */
 .description {
-    margin-bottom: 30px;
+    margin-bottom: 0;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .description-left {
@@ -49,19 +52,19 @@ body {
 
 /* Visualization container styles */
 .vis-container {
-    margin: 20px 0;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 0;
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .map-container {
     margin: 20px 0;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 /* Small font for footer */

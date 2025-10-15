@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Regional Tertiary Application Trends (2014-2024)",
-  "width": 900,
+  "width": 1070,
   "height": 50,
   "data": {
     "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/VCE_School_Results.csv"
@@ -40,29 +40,35 @@
     }
   ],
   "mark": "area",
+  "background": "transparent",
   "encoding": {
     "x": {
       "field": "year",
       "type": "temporal",
       "title": "Year",
-      "axis": {"grid": false}
+      "axis": {"grid": false, "labelAngle": -45, "format": "%Y", "tickCount": 11},
+      "scale": {"type": "utc"}
     },
     "y": {
       "field": "avg_tertiary_percentage",
       "type": "quantitative",
-      "title": "Average Tertiary Application %",
-      "axis": {"grid": false},
+      "title": "Tertiary %",
+      "axis": {"grid": false, "labelAngle": 0, "labelFontSize": 10, "tickCount": 3},
       "scale": {"domain": [0, 70]}
     },
     "color": {
       "field": "Region",
       "type": "nominal",
-      "legend": null
+      "title": "Region",
+      "legend": {
+        "orient": "bottom",
+        "direction": "horizontal"
+      }
     },
     "row": {
       "field": "Region",
       "type": "nominal",
-      "title": "Region"
+      "header": null
     },
     "tooltip": [
       {"field": "year", "type": "temporal", "title": "Year"},
@@ -70,5 +76,10 @@
       {"field": "avg_tertiary_percentage", "type": "quantitative", "title": "Average Tertiary Application %", "format": ".1f"},
       {"field": "school_count", "type": "quantitative", "title": "Number of Schools"}
     ]
+  },
+  "config": {
+    "facet": {
+      "title": null
+    }
   }
 }

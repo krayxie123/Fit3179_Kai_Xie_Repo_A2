@@ -22,9 +22,8 @@
         <!-- pure grid group -->
         <div class="pure-g">
             <div class="pure-u-1-1">
-                <div class="main-title">
-                    <h1 style="font-size: 40px;">Victorian Schools VCE Analysis</h1>
-                    <p style="font-weight: 500; font-size: 20px;">Understanding Educational Excellence Across Victoria</p>
+                <div class="main-title" style="background-image: url('js/ggim.png'); background-size: cover; background-position: center; padding: 50px 0;">
+                    <h1 style="font-size: 40px; color: white; text-shadow: 2px 2px 4px #000000;">VCE School Results Across Victoria</h1>
                 </div>
             </div>
         </div>
@@ -34,21 +33,32 @@
         <div class="pure-g">
             <div class="pure-u-1-1">
                 <div class="description description-left" style="text-align: center;">
-                    <h2 style="font-family: serif; font-weight: 550;">VCE School Results Across Victoria</h2>
                     <p class="title-line"></p>
                     <p style="font-family: sans-serif;">
-                        <strong>VCE results have been a great big deal in Australia</strong> - Victoria is known as the education state. 
-                        Just how well educated is the entire state? Is there disparity between regions and inequality? Let's investigate.
-                        <br><br>
-                        <strong>Understanding VCE Scores:</strong><br>
-                        • <strong>30</strong> is the median score for all states for a subject<br>
-                        • <strong>50</strong> is the maximum mark achievable<br>
-                        • Scores above <strong>40</strong> are considered excellent<br>
-                        • Median scores vary significantly by school and region
-                        <br><br>
-                        👆🏼 Hover on the map to view more information about each suburb. Use the year slider to explore trends over time.
+                        <strong>VCE results have been a great big deal in Australia</strong> 
+                        </p>Victoria is also known as the <strong>education state</strong>. 
+                        But just how well educated is the entire state? Is there disparity between regions and inequality? And how has this lead to higher education?
                     </p>
                     <div class="map-container" id="vce_working_map"></div>
+                    <div class="pure-g" style="margin-top: 20px;">
+                        <div class="pure-u-1-2">
+                            <p style="font-family: sans-serif;">
+                                <strong>Understanding VCE Scores:</strong><br>
+                                • <strong>30</strong> is the median score for all states for a subject<br>
+                                <br>
+                                • <strong>50</strong> is the maximum mark achievable<br>
+                                <br>
+                                • Scores above <strong>40</strong> are considered excellent<br>
+                                <br>
+                                • Median scores vary significantly by school and region
+                            </p>
+                        </div>
+                        <div class="pure-u-1-2">
+                            <p style="font-family: sans-serif;">
+                                <strong>Geospatial Median Score Correlations:</strong> <br>As we increase the VCE score threshold , we can observe how the median scores for each suburb. Higher thresholds reveal that metropolitan areas and regions closer to the city tend to maintain higher median scores, while regional and remote areas show more significant drops in performance. This pattern demonstrates the correlation between geographic proximity to metropolitan centers and educational outcomes, highlighting the resource disparities that impact VCE performance across Victoria.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -61,45 +71,38 @@
                     <h2 style="font-family: serif; font-weight: 550;text-align: center">Regional VCE Performance Analysis</h2>
                     <p class="title-line"></p>
                     <p style="font-family: sans-serif; text-align: center">
-                        Distribution patterns and average scores across Victorian regions reveal significant educational disparities.
-                        <strong>South Eastern Victoria</strong> is well known to have some of the best schools in Victoria and is the most educated region, 
-                        consistently excelling in VCE performance. The density plot shows the distribution patterns of scores across regions, 
-                        while the bar chart reveals the average performance levels.
-                        <br><br>
-                        The distributions show that larger metropolitan regions tend to have more diverse score ranges, 
-                        with both high-performing and struggling schools, while smaller regional areas often show more concentrated 
-                        performance patterns. This reflects the complex relationship between geographic location, 
-                        socioeconomic factors, and educational outcomes across Victoria.
-                        <br><br>
-                        👆🏼 Hover on the charts to view detailed information about regional performance patterns.
+                        Regional analysis reveals significant educational disparities across Victoria's four major regions. 
+                        <strong>South Eastern Victoria</strong> demonstrates the highest VCE performance, while other regions show varying levels of educational outcomes. 
+                        This section examines how regional location correlates with VCE results and tertiary application rates, 
+                        highlighting the potential impact of geographic and socioeconomic factors on educational opportunities.
                     </p>
                     <div class="pure-u-1-1">
                         <h3 style="font-family: serif; font-weight: 550; text-align: center;">Regional VCE Performance: 40+ Study Scores vs University Admission Rates</h3>
                         <div id="regional_scatter_plot" class="vis-container" style="text-align: center;"></div>
                         <p style="font-family: sans-serif; text-align: center; margin-top: 15px; font-style: italic; font-size: 14px;">
                             <strong>Regional Performance Patterns:</strong> This bubble chart shows the relationship between high-achieving students (40+ study scores) and university admission rates across Victorian regions. 
-                            Each bubble represents a school, with size indicating 40+ study score percentage, color showing median VCE score, and position showing university admission rates.
+                            Each bubble represents a school, with size indicating 40+ study score percentage and position showing university admission rates.
                         </p>
                     </div>
                     <div class="pure-u-1-1">
                         <h3 style="font-family: serif; font-weight: 550; text-align: center;">Distribution of VCE Median Scores by Region</h3>
                         <div id="vce_scores_density_region" class="vis-container"></div>
-                        <div style="display: flex; justify-content: space-between; margin-top: 20px; font-family: sans-serif; font-size: 14px;">
+                        <div style="display: flex; justify-content: space-between; margin-top: 0px; font-family: sans-serif; font-size: 14px;">
                             <div style="flex: 1; padding: 0 10px; text-align: center;">
                                 <h4 style="color: #1f77b4; font-weight: bold; font-size: 16px;">North-Eastern Victoria</h4>
-                                <p style="font-size: 13px;">Bell-shaped distribution with peak at 30-32 VCE scores. Consistent educational outcomes with stable academic performance across the area.</p>
+                                <p style="font-size: 13px;">Bell-shaped distribution with peak at 30-32 VCE scores. Very consistent educational outcomes with stable academic performance across the area.</p>
                             </div>
                             <div style="flex: 1; padding: 0 10px; text-align: center;">
                                 <h4 style="color: #ff7f0e; font-weight: bold; font-size: 16px;">North-Western Victoria</h4>
-                                <p style="font-size: 13px;">Negatively skewed distribution with peak at 28-30 VCE scores. Greater variability in educational outcomes with some schools facing challenges.</p>
+                                <p style="font-size: 13px;">Slight negative skew distribution with peak at 28-30 VCE scores.  Has the lowest preportion of high achieving schools.</p>
                             </div>
                             <div style="flex: 1; padding: 0 10px; text-align: center;">
                                 <h4 style="color: #d62728; font-weight: bold; font-size: 16px;">South-Eastern Victoria</h4>
-                                <p style="font-size: 13px;">Distinctive bimodal distribution with peaks at 28-30 and 34-36 VCE scores. Significant educational inequality with diverse socioeconomic landscape.</p>
+                                <p style="font-size: 13px;">Distinctive bimodal distribution with peaks at 28-30 and 34-36 VCE scores illustrating a subset of elite schools. Significant educational inequality despite being from the same region..</p>
                             </div>
                             <div style="flex: 1; padding: 0 10px; text-align: center;">
-                                <h4 style="color: #2ca02c; font-weight: bold; font-size: 16px;">South-Western Victoria</h4>
-                                <p style="font-size: 13px;">Symmetrical, normal distribution centered at 28-30 VCE scores. Consistent educational quality with most schools at moderate levels.</p>
+                                <h4 style="color: #34a7b6; font-weight: bold; font-size: 16px;">South-Western Victoria</h4>
+                                <p style="font-size: 13px;">Symmetrical, normal distribution centered at 28-30 VCE scores. Consistent normally distrubuted educational quality with most schools at moderate levels.</p>
                             </div>
                         </div>
                     </div>
@@ -107,8 +110,7 @@
                         <h3 style="font-family: serif; font-weight: 550; text-align: center;">Regional Tertiary Application Trends Over Time</h3>
                         <div id="regional_vce_trellis" class="vis-container" style="text-align: center;"></div>
                         <p style="font-family: sans-serif; text-align: center; margin-top: 15px; font-style: italic; font-size: 14px;">
-                            <strong>Regional Performance Patterns:</strong> This trellis chart shows how tertiary application rates vary across different Victorian regions over time. 
-                            Each small chart represents a region's trend, revealing patterns of educational aspiration and regional disparities in post-secondary education planning.
+                            <strong>Regional Performance Patterns:</strong> This trellis chart reveals a concerning trend - tertiary application rates are actually decreasing across all Victorian regions over time, contradicting Victoria's reputation as the "Education State." Each small chart represents a region's declining trend, highlighting how regional disparities in educational resources impact post-secondary education planning and opportunities.
                         </p>
                     </div>
                 </div>
@@ -124,21 +126,13 @@
                     <h2 style="font-family: serif; font-weight: 550;">Schools by Location Type & Metro vs Non-Metro Performance</h2>
                     <p class="title-line"></p>
                     <p style="font-family: sans-serif;">
-                        Geographic distribution of schools and performance patterns across metropolitan and regional areas.
-                        <strong>Metropolitan areas have much more resources</strong> compared to regional Victoria. This disparity is clearly reflected 
-                        in the educational outcomes and school sector distribution. Metro areas typically have greater access to:
+                        This section examines the obvious disparities between metropolitan and non-metropolitan educational outcomes, revealing how resource inequality creates disadvantaged communities. Metropolitan areas have significantly more educational resources compared to regional Victoria, directly impacting VCE performance and tertiary application rates. The analysis demonstrates how geographic location correlates with educational opportunities and outcomes.
                         <br><br>
-                        • Diverse school options (Government, Catholic, Independent)<br>
-                        • Specialized programs and resources<br>
-                        • Highly qualified teachers and staff<br>
-                        • Advanced facilities and technology<br>
-                        • Extracurricular opportunities
+                        <strong>Resource Disparities:</strong>
                         <br><br>
-                        Regional areas often face challenges with limited school choices, fewer resources, and geographic isolation. 
-                        The density plots reveal how these resource disparities translate into different performance patterns and 
-                        educational opportunities across Victoria's metropolitan and non-metropolitan regions.
+                        Metro areas have access to diverse school options, specialized programs, qualified teachers, and advanced facilities, while regional areas face limited choices, fewer resources, and geographic isolation. These disparities directly translate into different VCE performance patterns and tertiary application outcomes, highlighting the relationship between location, resources, and educational success.
                         <br><br>
-                        👆🏼 Hover on the charts to explore school distribution and performance patterns.
+                    
                     </p>
                     <div class="pure-g">
                         <div class="pure-u-1-2">
@@ -168,25 +162,17 @@
         <!-- pure grid group -->
         <div class="pure-g">
             <div class="pure-u-1-1">
-                <div class="description description-left">
+                <div class="description description-left" style="text-align: center;">
                     <h2 style="font-family: serif; font-weight: 550;">Schools by Education Sector & VCE Performance Analysis</h2>
                     <p class="title-line"></p>
                     <p style="font-family: sans-serif;">
-                        Comprehensive analysis of schools by education sector across Victoria and their VCE performance patterns.
-                        <strong>Government schools</strong> (blue) are the most numerous and widely distributed across Victoria, 
-                        while <strong>Catholic schools</strong> (gold) and <strong>Independent schools</strong> (green) tend to be 
-                        more concentrated in metropolitan areas. The density plot shows VCE score distribution patterns across 
-                        different education sectors, revealing performance variations.
-                        <br><br>
-                        The bubble chart illustrates the relationship between VCE performance and tertiary application rates, 
-                        with bubble size representing the number of VCE students. The pie chart shows the overall distribution 
-                        of school sectors. Independent and Catholic schools often show higher VCE scores and tertiary application 
-                        rates, reflecting different educational approaches and student demographics.
-                        <br><br>
-                        👆🏼 Hover on the charts to explore detailed performance metrics and sector distributions.
+                        This section analyzes how school sector (Government, Catholic, Independent) correlates with VCE performance and tertiary application outcomes. Government schools (black) serve the majority of Victorian students but show varying performance patterns, while Catholic schools (orange) and Independent schools (yellow) demonstrate different educational approaches and outcomes. The analysis reveals how school sector choice impacts both VCE results and tertiary application rates.
                     </p>
                     <div class="pure-u-1-1">
                         <div id="school_bubble_chart" class="vis-container"></div>
+                        <p style="font-family: sans-serif; margin-top: 15px; font-style: italic; font-size: 14px;">
+                            <strong>Educational Outcomes by Sector:</strong> The bubble chart illustrates the direct correlation between VCE performance and tertiary application rates, with bubble size representing student numbers. The density plot shows performance distribution patterns across sectors, while the pie chart reveals sector distribution. Independent and Catholic schools typically show higher VCE scores and tertiary application rates, reflecting different resource levels, teaching approaches, and student demographics that influence educational outcomes.
+                        </p>
                     </div>
                     <div class="pure-g" style="display: flex; align-items: center; gap: 20px;">
                         <div class="pure-u-1-2" style="flex: 1;">
@@ -195,17 +181,6 @@
                         <div class="pure-u-1-2" style="flex: 1;">
                             <div id="education_sector_pie_chart" class="vis-container"></div>
                         </div>
-                    </div>
-                    <div class="pure-u-1-1">
-                        <h3 style="font-family: serif; font-weight: 550; text-align: center;">Top Schools by Education Sector: Percentage of Students with 40+ Study Scores (2014-2024)</h3>
-                        <div id="top_schools_by_sector" class="vis-container"></div>
-                        <p style="font-family: sans-serif; text-align: center; margin-top: 15px; font-style: italic;">
-                            <strong>Elite School Performance Analysis:</strong> This overlapping area chart reveals the performance trajectories of Victoria's top-performing schools across different education sectors over time. 
-                            The <strong>blue area</strong> represents Government schools, <strong>gold area</strong> shows Catholic schools, and <strong>green area</strong> displays Independent schools. 
-                            The visualization demonstrates how each sector's elite schools maintain consistently high percentages of students achieving 40+ study scores, 
-                            with Independent schools typically leading in performance, followed by Catholic schools, while Government schools show more variability. 
-                            The overlapping areas reveal periods where different sectors converge in performance, highlighting the competitive landscape of Victoria's educational excellence.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -218,21 +193,6 @@
 
 
 
-        <!-- pure grid group -->
-        <div class="pure-g">
-            <div class="pure-u-1-1">
-                <div class="description description-left">
-                    <h2 style="font-family: serif; font-weight: 550;">Top 10 Schools by Percentage of Students with 40+ Study Scores for Each Year (2014-2024)</h2>
-                    <p class="title-line"></p>
-                    <p style="font-family: sans-serif;">
-                        This chart shows the top-performing schools each year based on the percentage of students achieving 40+ study scores.
-                        These schools consistently demonstrate excellence in VCE performance and serve as benchmarks for educational achievement.
-                        <br><br>
-                        👆🏼 Hover on the lines to see school names and performance metrics. Use the year slider to explore trends over time.
-                    </p>
-                    <div id="top_schools_tertiary" class="vis-container"></div>
-            </div>
-        </div>
     </div>
         <!-- end pure grid group -->
 
@@ -271,7 +231,7 @@
 
 
 
-        var spec11 = "js/education_sector/school_bubble_chart_basic.json";
+        var spec11 = "js/education_sector/school_bubble_chart.json";
             vegaEmbed('#school_bubble_chart', spec11).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
@@ -301,10 +261,6 @@
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
 
-        var spec22 = "js/education_sector/top_schools_by_sector.json";
-            vegaEmbed('#top_schools_by_sector', spec22).then(function(result) {
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
 
         var spec23 = "js/metro_nonmetro/top_schools_by_metro.json";
             vegaEmbed('#top_schools_by_metro', spec23).then(function(result) {
@@ -349,7 +305,7 @@
         <!-- Footer -->
         <div class="pure-g">
             <div class="pure-u-1-1 small-font">
-                <p>This visualisation is created for FIT3179 - Victorian Schools VCE Analysis.
+                <p>FIT 3179- Kai Xie
                     The datasource includes VCE School Results, School Locations, and other educational datasets from the Victorian Department of Education.
                 </p>
             </div>

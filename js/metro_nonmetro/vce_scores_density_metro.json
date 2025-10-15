@@ -34,6 +34,7 @@
     }
   ],
   "mark": "area",
+  "background": "transparent",
   "encoding": {
     "x": {
       "field": "value",

@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Regional VCE Performance: 40+ Study Scores vs University Admission",
-  "width": 850,
+  "width": 970,
   "height": 300,
   "params": [
     {
@@ -65,6 +65,7 @@
     "stroke": "black",
     "strokeWidth": 1
   },
+  "background": "transparent",
   "encoding": {
     "x": {
       "field": "percent_tertiary",
