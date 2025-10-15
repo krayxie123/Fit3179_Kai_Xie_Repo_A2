@@ -45,7 +45,7 @@ body {
 
 .title-line {
     height: 2px;
-    background: linear-gradient(to right, #4CAF50, #2196F3);
+    background: #54b364c6;
     margin: 10px 0 20px 0;
     border: none;
 }
