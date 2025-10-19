@@ -61,6 +61,11 @@
     },
     "opacity": {
       "value": 0.7
-    }
+    },
+    "tooltip": [
+      {"field": "LGA_TYPE", "type": "nominal", "title": "Area Type"},
+      {"field": "value", "type": "quantitative", "title": "VCE Study Score", "format": ".1f"},
+      {"field": "density", "type": "quantitative", "title": "Density", "format": ".3f"}
+    ]
   }
 }
