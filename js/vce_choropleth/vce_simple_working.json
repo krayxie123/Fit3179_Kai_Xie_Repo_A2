@@ -1,12 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "Median VCE Study Scores by Locality",
-    "fontSize": 30,
-    "fontWeight": "bold"
-  },
-  "width": 1000,
+  "width": 1150,
   "height": 500,
+  "background": null,
   "params": [
     {
       "name": "zoom_level",
@@ -129,7 +125,7 @@
       }
     },
     {
-      "data": {"graticule": {"step": [1, 1]}},
+      "data": {"graticule": {"step": [0.2, 0.2]}},
       "mark": {"type": "geoshape", "stroke": "grey", "strokeWidth": 0.5, "fill": null}
     }
   ]

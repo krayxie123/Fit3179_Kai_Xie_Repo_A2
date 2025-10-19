@@ -1,8 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Distribution of Schools by Education Sector",
   "width": 400,
-  "height": 315,
+  "height": 350,
   "data": {
     "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/data/dv402-SchoolLocations2025.csv"
   },
@@ -18,14 +17,51 @@
         }
       ],
       "groupby": ["Education_Sector"]
+    },
+    {
+      "window": [
+        {
+          "op": "sum",
+          "field": "count",
+          "as": "total"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.count / datum.total * 100",
+      "as": "percentage"
     }
   ],
-  "mark": {
-    "type": "arc",
-    "innerRadius": 50,
-    "stroke": "white",
-    "strokeWidth": 2
-  },
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "innerRadius": 50,
+        "stroke": "white",
+        "strokeWidth": 2
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "radius": 120,
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "fill": "white"
+      },
+      "encoding": {
+        "text": {
+          "field": "percentage",
+          "type": "quantitative",
+          "format": ".1f"
+        },
+        "theta": {
+          "field": "count",
+          "type": "quantitative"
+        }
+      }
+    }
+  ],
   "background": "transparent",
   "encoding": {
     "theta": {
@@ -40,7 +76,11 @@
         "domain": ["Government", "Catholic", "Independent"],
         "range": ["#000000", "#FF8C00", "#FFD700"]
       },
-      "legend": null
+      "legend": {
+        "orient": "top",
+        "direction": "horizontal",
+        "title": null
+      }
     },
     "tooltip": [
       {"field": "Education_Sector", "type": "nominal", "title": "Education Sector"},

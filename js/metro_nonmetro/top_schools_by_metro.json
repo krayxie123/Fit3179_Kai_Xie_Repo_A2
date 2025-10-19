@@ -1,7 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Top Schools by Location Type: Percentage of Students with 40+ Study Scores (2014-2024)",
-  "width": 400,
+  "width": 450,
   "height": 520,
   "data": {
     "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/VCE_School_Results.csv",
@@ -63,7 +62,7 @@
       "field": "year",
       "type": "ordinal",
       "title": "Year",
-      "axis": {"labelAngle": 45, "format": "d"}
+      "axis": {"labelAngle": 0, "format": "d"}
     },
     "y": {
       "field": "avg_percent_40plus",
@@ -78,6 +77,11 @@
       "scale": {
         "domain": ["Metro", "Non Metro"],
         "range": ["#F7AF9D", "#8FCB9B"]
+      },
+      "legend": {
+        "orient": "top",
+        "direction": "horizontal",
+        "title": null
       }
     },
     "tooltip": [

@@ -1,6 +1,8 @@
 /* Global styles */
 body {
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
@@ -20,92 +22,87 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Main title styles */
-.main-title {
-    text-align: center;
-    margin-bottom: 40px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+/* Basic grid replacement */
+div {
+    box-sizing: border-box;
 }
 
-/* Description styles */
-.description {
-    margin-bottom: 0;
-    padding: 20px;
-    background-color: transparent;
-    border-radius: 0;
-    box-shadow: none;
+/* Flexbox for side-by-side layouts */
+.flex-container {
+    display: flex;
+    gap: 20px;
 }
 
-.description-left {
-    text-align: left;
+.flex-item {
+    flex: 1;
 }
 
-.title-line {
-    height: 2px;
-    background: #54b364c6;
-    margin: 10px 0 20px 0;
-    border: none;
+h1 {
+    font-size: 40px;
+    font-weight: 700;
 }
 
-/* Visualization container styles */
+h2 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+
 .vis-container {
     margin: 0;
     padding: 20px;
-    background-color: transparent;
-    border-radius: 0;
-    box-shadow: none;
 }
 
-.map-container {
-    margin: 20px 0;
-    padding: 10px;
-    background-color: transparent;
-    border-radius: 0;
-    box-shadow: none;
-}
-
-/* Small font for footer */
-.small-font {
-    font-size: 12px;
-    color: #666;
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-}
-
-/* Responsive visualization styles */
-.vis-container {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Ensure charts don't overflow */
 .vega-embed {
     max-width: 100% !important;
 }
 
-/* Image styling */
-img {
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+
+
+
+.minimal-container {
+    padding: 20px;
+    background-color: #ccc8a4;
+    border-radius: 6px;
+    margin: 15px 0;
+    border: 1px solid #5f5a2756;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-    .page {
-        padding: 10px;
-    }
-    
-    .description {
-        padding: 15px;
-    }
-    
-    .vis-container {
-        padding: 5px;
-    }
+
+
+.text-content {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
 }
+
+.section-title {
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    font-weight: 700;
+    text-align: center;
+}
+
+.title-line {
+    height: 8px;
+    background: #7dac85c6;
+    margin: 10px 0 20px 0;
+    border: none;
+}
+

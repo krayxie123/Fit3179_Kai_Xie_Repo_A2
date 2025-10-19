@@ -61,7 +61,10 @@
     "x": {
       "field": "median_vce_ss",
       "type": "quantitative",
-      "title": "Median VCE Study Score"
+      "title": "Median VCE Study Score",
+      "scale": {
+        "domainMin": 18
+      }
     },
     "y": {
       "field": "percent_vce_studs_apply_tert",
@@ -91,7 +94,7 @@
     "tooltip": [
       {"field": "school", "type": "nominal", "title": "School"},
       {"field": "locality", "type": "nominal", "title": "Locality"},
-      {"field": "year", "type": "temporal", "title": "Year"},
+      {"field": "year", "type": "quantitative", "title": "Year"},
       {"field": "median_vce_ss", "type": "quantitative", "title": "Median VCE Score"},
       {"field": "percent_vce_studs_apply_tert", "type": "quantitative", "title": "Tertiary Applications %"},
       {"field": "num_vce_students_enrolled", "type": "quantitative", "title": "VCE Students Enrolled"}

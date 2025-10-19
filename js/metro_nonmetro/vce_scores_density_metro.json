@@ -1,7 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "title": "Distribution of VCE Median Scores: Metro vs Non-Metro",
-  "width": 400,
+  "width": 450,
   "height": 520,
   "data": {
     "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/VCE_School_Results.csv"
@@ -53,6 +52,11 @@
       "scale": {
         "domain": ["Metro", "Non Metro"],
         "range": ["#F7AF9D", "#8FCB9B"]
+      },
+      "legend": {
+        "orient": "top",
+        "direction": "horizontal",
+        "title": null
       }
     },
     "opacity": {

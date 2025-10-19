@@ -46,7 +46,7 @@
       "field": "year",
       "type": "temporal",
       "title": "Year",
-      "axis": {"grid": false, "labelAngle": -45, "format": "%Y", "tickCount": 11},
+      "axis": {"grid": false, "labelAngle": 0, "format": "%Y", "tickCount": 11},
       "scale": {"type": "utc"}
     },
     "y": {
