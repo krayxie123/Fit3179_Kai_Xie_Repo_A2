@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 400,
+  "width": 450,
   "height": 350,
   "data": {
     "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/main/data/dv402-SchoolLocations2025.csv"
@@ -32,36 +32,12 @@
       "as": "percentage"
     }
   ],
-  "layer": [
-    {
-      "mark": {
-        "type": "arc",
-        "innerRadius": 50,
-        "stroke": "white",
-        "strokeWidth": 2
-      }
-    },
-    {
-      "mark": {
-        "type": "text",
-        "radius": 120,
-        "fontSize": 14,
-        "fontWeight": "bold",
-        "fill": "white"
-      },
-      "encoding": {
-        "text": {
-          "field": "percentage",
-          "type": "quantitative",
-          "format": ".1f"
-        },
-        "theta": {
-          "field": "count",
-          "type": "quantitative"
-        }
-      }
-    }
-  ],
+  "mark": {
+    "type": "arc",
+    "innerRadius": 50,
+    "stroke": "white",
+    "strokeWidth": 2
+  },
   "background": "transparent",
   "encoding": {
     "theta": {

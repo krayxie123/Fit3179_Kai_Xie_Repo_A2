@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "width": 400,
+  "width": 450,
   "height": 350,
   "data": {
     "url": "https://raw.githubusercontent.com/krayxie123/Week4-studio/refs/heads/main/data/VCE_School_Results.csv"
@@ -32,7 +32,46 @@
       "groupby": ["Education_Sector"]
     }
   ],
-  "mark": "area",
+  "layer": [
+    {
+      "mark": "area"
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "stroke": "blue",
+        "strokeWidth": 2,
+        "strokeDash": [5, 5]
+      },
+      "encoding": {
+        "x": {
+          "datum": 30
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "dy": -10,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "fill": "blue"
+      },
+      "encoding": {
+        "x": {
+          "datum": 30
+        },
+        "y": {
+          "datum": 0.15
+        },
+        "text": {
+          "datum": "Median VCE Score (30)"
+        }
+      }
+    }
+  ],
   "background": "transparent",
   "encoding": {
     "x": {
