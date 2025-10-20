@@ -51,7 +51,7 @@
       "title": "Area Type",
       "scale": {
         "domain": ["Metro", "Non Metro"],
-        "range": ["#F7AF9D", "#8FCB9B"]
+        "range": ["#1f77b4", "#8FCB9B"]
       },
       "legend": {
         "orient": "top",
