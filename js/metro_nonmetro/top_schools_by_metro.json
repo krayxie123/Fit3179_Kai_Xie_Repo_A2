@@ -85,7 +85,7 @@
       }
     },
     "tooltip": [
-      {"field": "year", "type": "temporal", "title": "Year"},
+      {"field": "year", "type": "quantitative", "title": "Year"},
       {"field": "LGA_TYPE", "type": "nominal", "title": "Location Type"},
       {"field": "avg_percent_40plus", "type": "quantitative", "title": "Average % 40+ Scores", "format": ".1f"},
       {"field": "school_count", "type": "quantitative", "title": "Number of Top Schools"}
